@@ -1,16 +1,28 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+"""
+Определить, какие из слов «attribute», «класс», «функция», «type» невозможно записать в байтовом типе.
+Важно: решение должно быть универсальным, т.е. не зависеть от того, какие конкретно слова мы исследуем
+"""
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def bytes_compatible_check(word: str):
+    """returns true if string can be converted to bytes"""
+    for character in word:
+        if ord(character) > 127:
+            return False
+    return True
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+words_for_check = ['attribute',
+                   'класс',
+                   'функция',
+                   'type']
+
+incompatible_words = []
+for item in words_for_check:
+    if not bytes_compatible_check(item):
+        incompatible_words.append(item)
+
+print(f'all words:\n'
+      f'{words_for_check}\n'
+      f'incompatible words:\n'
+      f'{incompatible_words}')
