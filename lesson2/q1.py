@@ -70,7 +70,6 @@ def write_to_csv(path: str):
         f_writer.writerows(data)
 
 
-if __name__ == '__main__':
-    target_dir = 'q1_files'
-    target_filename = 'main_data.csv'
-    write_to_csv(os.path.join(os.getcwd(), target_dir, target_filename))
+target_dir = 'q1_files'
+target_filename = 'main_data.csv'
+write_to_csv(os.path.join(os.getcwd(), target_dir, target_filename))

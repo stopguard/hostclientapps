@@ -41,6 +41,5 @@ def write_order_to_json(item,
         json.dump(orders_data, f, indent=4)
 
 
-if __name__ == '__main__':
-    for i in range(1, 13):
-        write_order_to_json(f'Товар{i}', i, i * 100, f'Клиент{i}', f'{i:0>2}.{i:0>2}.2022')
+for i in range(1, 13):
+    write_order_to_json(f'Товар{i}', i, i * 100, f'Клиент{i}', f'{i:0>2}.{i:0>2}.2022')
