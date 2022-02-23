@@ -19,7 +19,6 @@
 import csv
 import os
 import re
-from pprint import pprint
 
 import chardet
 
