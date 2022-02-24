@@ -1,0 +1,9 @@
+list:
+- 1
+- 2
+- asd
+no_ascii_values_dict:
+  1: 1Б
+  2: 2Г
+  3: 3Д
+number: 100500
