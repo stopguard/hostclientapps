@@ -4,7 +4,7 @@ import socket
 from .settings import MAX_PACKAGE_LENGTH, ENCODING
 
 
-def get_msg(cl_sock: socket.SocketType) -> dict:
+def get_data(cl_sock: socket.SocketType) -> dict:
     """
     unpack received data
     :param cl_sock: target socket
@@ -18,7 +18,7 @@ def get_msg(cl_sock: socket.SocketType) -> dict:
     return {}
 
 
-def post_msg(data: dict, sock: socket.SocketType):
+def post_data(data: dict, sock: socket.SocketType):
     """
     serialize and send data to target socket
     :param data: data being sent

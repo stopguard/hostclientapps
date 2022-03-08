@@ -24,8 +24,8 @@ ENCODING = 'utf-8'
 MAX_PACKAGE_LENGTH = 640
 
 # Default server port for clients connections
-# Default value = 7777
-DEFAULT_SERVER_PORT = 7777
+# Default value = '7777'
+DEFAULT_SERVER_PORT = '7777'
 
 # Keys
 # Default values:
