@@ -27,11 +27,11 @@ def response_handler(response_data: dict) -> str:
     """
     status_code = response_data.get(consts.RESPONSE, 0)
     if status_code:
-        result_msg = response_data.get(consts.ALERT, 'OK') \
+        result_msg = response_data.get(consts.ALERT, 'OK.') \
             if status_code == 200 else \
             response_data.get(consts.ERROR, 'unknown error')
         return f'{status_code}: {result_msg}'
-    return f'Wrong data'
+    return 'Wrong data'
 
 
 def main():

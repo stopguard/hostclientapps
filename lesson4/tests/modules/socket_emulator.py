@@ -1,6 +1,7 @@
 import json
 import sys
 import os
+from copy import deepcopy
 
 sys.path.append(os.path.join(os.getcwd(), '..', '..'))
 import common.settings as consts
@@ -8,8 +9,8 @@ import common.settings as consts
 
 class SocketType:
     """socket actions imitation"""
-    def __init__(self, initial_dict):
-        self.__data = initial_dict
+    def __init__(self, initial_data):
+        self.__data = deepcopy(initial_data)
         self.received_data = None
         self.response_data = None
 
