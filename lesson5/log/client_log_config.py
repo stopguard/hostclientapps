@@ -1,8 +1,11 @@
 import logging
 import os
 
+is_self_run = __name__ == '__main__'
+
 # setting up handler
-log_path = os.path.join(os.getcwd(), 'client_logs', 'client_log.log')
+ending = ('client_logs', 'client_log.log') if is_self_run else ('log', 'client_logs', 'client_log.log')
+log_path = os.path.join(os.getcwd(), *ending)
 handler = logging.FileHandler(log_path, encoding='utf-8')
 handler.setLevel(logging.NOTSET)
 formatter = logging.Formatter("%(asctime)s %(levelname)-8s %(message)s")
@@ -14,7 +17,7 @@ client_logger.setLevel(logging.DEBUG)
 client_logger.addHandler(handler)
 
 
-if __name__ == '__main__':
+if is_self_run:
     client_logger.debug('debug')
     client_logger.info('info')
     client_logger.warning('warning')
