@@ -3,3 +3,10 @@
 2022-03-13 17:22:58,084 WARNING  warning
 2022-03-13 17:22:58,084 ERROR    error
 2022-03-13 17:22:58,084 CRITICAL critical
+2022-03-13 18:35:09,119 DEBUG    Client app started with args: ['/media/sf_selflearning/hostclientapps/HW/lesson5/client.py']
+2022-03-13 18:35:09,120 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
+2022-03-13 19:31:34,253 DEBUG    Client app started with args: ['/media/sf_selflearning/hostclientapps/HW/lesson5/client.py']
+2022-03-13 19:31:34,253 INFO     Connected to server address: 127.0.0.1:7777
+2022-03-13 19:31:34,254 DEBUG    Creating presence message from Guest
+2022-03-13 19:31:34,255 INFO     Response status OK
+2022-03-13 19:31:34,255 DEBUG    Response processing result: 200: OK
