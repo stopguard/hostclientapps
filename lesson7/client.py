@@ -29,8 +29,8 @@ def presence(username: str) -> dict:
 def create_message(msg_text: str, username: str) -> dict:
     data = {
         consts.ACTION: consts.MESSAGE,
+        consts.USER: {consts.ACCOUNT_NAME: username},
         consts.TIME: time(),
-        consts.ACCOUNT_NAME: username,
         consts.MESSAGE_TEXT: msg_text,
     }
     CLIENT_LOGGER.debug(f'Message dict created: {data}')
@@ -103,7 +103,7 @@ def extract_args():
     args = parser.parse_args(argv)
 
     server_ip = args.addr
-    server_port = args.port if 1024 < args.port < 65535 else int(consts.DEFAULT_SERVER_PORT)
+    server_port = args.port if 1024 < args.port < 65535 else consts.DEFAULT_SERVER_PORT
     is_sender = args.mode == 'send'
     client_name = args.name
     return server_ip, server_port, is_sender, client_name
