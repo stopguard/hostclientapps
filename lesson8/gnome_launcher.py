@@ -29,15 +29,13 @@ def up_and_return_module(module_file, args=''):
     return subprocess.Popen(full_args, preexec_fn=os.setpgrp)
 
 
-def start_apps(current_tasks: list, senders=2, readers=2) -> list:
+def start_apps(current_tasks: list, clients=4) -> list:
     """start or restart server and clients windows.
-    can receive senders and readers counts in args"""
+    can receive clients count in args"""
     kill_all(current_tasks)
     new_process_list = [up_and_return_module('server.py')]
-    for _ in range(senders):
-        new_process_list.append(up_and_return_module('client.py', '-m send'))
-    for _ in range(readers):
-        new_process_list.append(up_and_return_module('client.py'))
+    for num in range(1, clients + 1):
+        new_process_list.append(up_and_return_module('client.py', f'-n test{num}'))
     return new_process_list
 
 
