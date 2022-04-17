@@ -14,10 +14,17 @@ class Launcher:
     ACTIONS = [START, KILL_ALL, EXIT]
 
     def __init__(self):
-        self.__os_type = os.name
         self.__process_list = []
         self.__interpreter_path = sys.executable
         self.__work_dir = os.getcwd()
+        if os.name == 'posix':
+            self.up_module = self.__up_module_gnome
+            self.kill_all = self.__kill_all_gnome
+        elif os.name == 'nt':
+            self.up_module = self.__up_module_win
+            self.kill_all = self.__kill_all_win
+        else:
+            raise Exception('This OS is not supported')
 
     def run(self, action, *args):
         actions = {
@@ -27,18 +34,42 @@ class Launcher:
         }
         actions[action](*args)
 
-    def up_module(self, module_file, args=''):
-        """up and return process with args string"""
+    def __up_module_win(self, module_file, args=''):
+        """up and return process with args string in windows"""
         time.sleep(0.2)
         command_line = ' '.join((self.__interpreter_path, os.path.join(self.__work_dir, module_file), args))
-        if self.__os_type == 'posix':
-            full_args = 'gnome-terminal', '--disable-factory', '--', 'bash', '-c', command_line
-            process = subprocess.Popen(full_args, preexec_fn=os.setpgrp)
-        elif self.__os_type == 'nt':
-            process = subprocess.Popen(command_line, creationflags=subprocess.CREATE_NEW_CONSOLE)
-        else:
-            raise Exception('This OS is not supported')
+        process = subprocess.Popen(command_line, creationflags=subprocess.CREATE_NEW_CONSOLE)
         self.__process_list.append(process)
+
+    def __up_module_gnome(self, module_file, args=''):
+        """up and return process with args string in linux with gnome ui"""
+        time.sleep(0.2)
+        command_line = ' '.join((self.__interpreter_path, os.path.join(self.__work_dir, module_file), args))
+        full_args = 'gnome-terminal', '--disable-factory', '--', 'bash', '-c', command_line
+        process = subprocess.Popen(full_args, preexec_fn=os.setpgrp)
+        self.__process_list.append(process)
+
+    def __kill_all_win(self, *args):
+        """kill processes in targets list in windows"""
+        print('Killing of running processes...')
+        while self.__process_list:
+            process = self.__process_list.pop()
+            try:
+                process.kill()
+            except Exception:
+                pass
+        print('OK')
+
+    def __kill_all_gnome(self, *args):
+        """kill processes in targets list in linux with gnome ui"""
+        print('Killing of running processes...')
+        while self.__process_list:
+            process = self.__process_list.pop()
+            try:
+                os.killpg(process.pid, signal.SIGINT)
+            except Exception:
+                pass
+        print('OK')
 
     def start_apps(self, clients_count: int, *args):
         """start or restart server and clients windows.
@@ -50,28 +81,6 @@ class Launcher:
         for num in range(1, clients_count + 1):
             self.up_module('client.py', f'-n test{num}')
         print('OK\n')
-
-    def kill_all(self, *args):
-        """kill processes in targets list"""
-        print('Killing of running processes...')
-        if self.__os_type == 'posix':
-            while self.__process_list:
-                process = self.__process_list.pop()
-                try:
-                    os.killpg(process.pid, signal.SIGINT)
-                except Exception:
-                    pass
-        elif self.__os_type == 'nt':
-            while self.__process_list:
-                process = self.__process_list.pop()
-                try:
-                    process.kill()
-                except Exception:
-                    pass
-        else:
-            raise Exception('This OS is not supported')
-        print('OK')
-
 
     def close_launcher(self, *args):
         """kill processes in tasks list and close launcher"""
