@@ -76,7 +76,7 @@ class Launcher:
 
 def arg_parse(command_line: str) -> (str, int):
     command_line = command_line.strip()
-    if command_line:
+    if not command_line:
         return '', 0
     parser = ArgumentParser()
     parser.add_argument('action', nargs='?')
