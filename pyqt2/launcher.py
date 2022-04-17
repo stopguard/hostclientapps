@@ -44,12 +44,16 @@ class Launcher:
         """start or restart server and clients windows.
         can receive clients count in args"""
         self.kill_all(self.__process_list)
+        print('Running the server process')
         self.up_module('server.py')
+        print('Running client processes')
         for num in range(1, clients_count + 1):
             self.up_module('client.py', f'-n test{num}')
+        print('OK\n')
 
     def kill_all(self, *args):
         """kill processes in targets list"""
+        print('Killing of running processes...')
         if self.__os_type == 'posix':
             while self.__process_list:
                 process = self.__process_list.pop()
@@ -57,7 +61,6 @@ class Launcher:
                     os.killpg(process.pid, signal.SIGINT)
                 except Exception:
                     pass
-            return
         elif self.__os_type == 'nt':
             while self.__process_list:
                 process = self.__process_list.pop()
@@ -65,12 +68,15 @@ class Launcher:
                     process.kill()
                 except Exception:
                     pass
-            return
-        raise Exception('This OS is not supported')
+        else:
+            raise Exception('This OS is not supported')
+        print('OK')
+
 
     def close_launcher(self, *args):
         """kill processes in tasks list and close launcher"""
         self.kill_all()
+        print('Closing the launcher')
         exit(0)
 
 
