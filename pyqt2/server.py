@@ -9,13 +9,14 @@ from time import time
 import common.settings as consts
 import log.server_log_config
 from common.descriptors import IP, Port
+from common.metaclasses import ServerMaker
 from common.utils import get_data, post_data
 
 # server logger init
 SERVER_LOGGER = logging.getLogger('server')
 
 
-class Server:
+class Server(metaclass=ServerMaker):
     listen_ip = IP()
     port = Port()
 
@@ -36,7 +37,7 @@ class Server:
 
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as self.socket:
             self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            self.socket.bind((self.listen_ip, self.port))
+            self.socket.bind((str(self.listen_ip), self.port))
             self.socket.listen()
             self.socket.settimeout(0.25)
 

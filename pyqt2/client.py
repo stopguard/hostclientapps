@@ -7,13 +7,14 @@ from time import time, sleep
 
 import common.settings as consts
 import log.client_log_config
+from common.metaclasses import ClientMaker
 from common.utils import get_data, post_data
 
 # client logger init
 CLIENT_LOGGER = logging.getLogger('client')
 
 
-class Client:
+class Client(metaclass=ClientMaker):
     def __init__(self):
         self.username = None
         self.server_sock = None
