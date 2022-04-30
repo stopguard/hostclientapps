@@ -5,6 +5,7 @@ Application variables
 # SERVER SIDE
 
 DEFAULT_LISTEN_IP = '0.0.0.0'
+SERVER_DB = 'sqlite:///common/server.db3'
 
 
 # CLIENT SIDE
