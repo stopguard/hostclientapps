@@ -1,0 +1,10 @@
+2022-03-13 17:33:39,156 DEBUG    debug
+2022-03-13 17:33:39,156 INFO     info
+2022-03-13 17:33:39,156 WARNING  warning
+2022-03-13 17:33:39,157 ERROR    error
+2022-03-13 17:33:39,157 CRITICAL critical
+2022-03-13 19:31:18,739 DEBUG    Server app started with args: ['/media/sf_selflearning/hostclientapps/HW/lesson5/server.py']
+2022-03-13 19:31:18,740 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-03-13 19:31:18,740 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-03-13 19:31:34,254 DEBUG    Received data from client ('127.0.0.1', 41204): {'action': 'presence', 'user': {'account_name': 'Guest'}, 'time': 1647181894.2543738}
+2022-03-13 19:31:34,254 INFO     Correct [presence] from [Guest] received
