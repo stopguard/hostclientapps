@@ -77,6 +77,7 @@ class Launcher:
         self.kill_all(self.__process_list)
         print('Running the server process')
         self.up_module('server.py')
+        time.sleep(1)
         print('Running client processes')
         for num in range(1, clients_count + 1):
             self.up_module('client.py', f'-n test{num}')

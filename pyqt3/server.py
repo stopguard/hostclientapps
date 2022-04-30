@@ -10,6 +10,7 @@ import common.settings as consts
 import log.server_log_config
 from common.descriptors import IP, Port
 from common.metaclasses import ServerMaker
+from common.server_db import Storage
 from common.utils import get_data, post_data
 
 # server logger init
@@ -28,6 +29,7 @@ class Server(metaclass=ServerMaker):
         self.socket = None
         self.listen_ip = ip_address('0.0.0.0')
         self.port = consts.DEFAULT_SERVER_PORT
+        self.db = Storage(consts.SERVER_DB)
 
     def start(self, listen_ip, port: int):
         SERVER_LOGGER.debug(f'Initiating listen address: {listen_ip}:{port}.')
@@ -66,7 +68,8 @@ class Server(metaclass=ServerMaker):
                 for client_sock in senders_list:
                     try:
                         client_data = get_data(client_sock)
-                        SERVER_LOGGER.debug(f'Received data from client {client_sock.getpeername()}: {client_data}')
+                        ip, port = client_sock.getpeername()
+                        SERVER_LOGGER.debug(f'Received data from client {ip}:{port}: {client_data}')
                         processed_data, data_type, target_name = self.data_handler(client_data)
                         if data_type == consts.PRESENCE:
                             if target_name == consts.GUEST:
@@ -78,6 +81,7 @@ class Server(metaclass=ServerMaker):
                                 post_data(processed_data, client_sock)
                                 raise Exception(consts.INVALID_USERNAME)
                             post_data(processed_data, client_sock)
+                            self.db.connect_user(target_name, ip, port)
                             continue
                         if data_type == consts.MESSAGE:
                             sender_name = processed_data.get(consts.SENDER)
@@ -102,9 +106,11 @@ class Server(metaclass=ServerMaker):
                                         post_data(processed_data, client_sock)
                                     continue
                                 except Exception as err:
-                                    SERVER_LOGGER.warning(f'Lost connection to {target_sock.getpeername()}. '
+                                    ip, port = target_sock.getpeername()
+                                    SERVER_LOGGER.warning(f'Lost connection to {ip}:{port}. '
                                                           f'Connection dropped. Exception: {err}')
                                     target_sock.close()
+                                    self.db.disconnect_user(ip=ip, port=port)
                                     self.client_socks.remove(target_sock)
                                     del self.authorised_socks[target_name]
                             elif target_name == consts.ALL:
@@ -120,9 +126,18 @@ class Server(metaclass=ServerMaker):
                             post_data(processed_data, client_sock)
                             continue
                     except Exception as err:
-                        SERVER_LOGGER.warning(f'Wrong data from client {client_sock.getpeername()}. '
+                        ip, port = client_sock.getpeername()
+                        SERVER_LOGGER.warning(f'Wrong data from client {ip}:{port}. '
                                               f'Connection dropped. Exception: {err}')
                         client_sock.close()
+                        if client_sock in self.guest_socks:
+                            self.guest_socks.remove(client_sock)
+                        else:
+                            for key, value in self.authorised_socks.items():
+                                if value == client_sock:
+                                    del self.authorised_socks[key]
+                                    break
+                        self.db.disconnect_user(ip=ip, port=port)
                         self.client_socks.remove(client_sock)
 
             if self.data_to_send and listeners_list:
@@ -131,7 +146,8 @@ class Server(metaclass=ServerMaker):
                     try:
                         post_data(current_data, current_listener)
                     except Exception as err:
-                        SERVER_LOGGER.warning(f'Client {current_listener.getpeername()} disconnected from the server. '
+                        ip, port = current_listener.getpeername()
+                        SERVER_LOGGER.warning(f'Client {ip}:{port} disconnected from the server. '
                                               f'Connection dropped. Exception: {err}')
                         if current_listener in self.guest_socks:
                             self.guest_socks.remove(current_listener)
@@ -143,6 +159,7 @@ class Server(metaclass=ServerMaker):
                                     break
                             if listener_key:
                                 del self.authorised_socks[listener_key]
+                        self.db.disconnect_user(ip=ip, port=port)
                         self.client_socks.remove(current_listener)
                         current_listener.close()
                 del self.data_to_send[0]
