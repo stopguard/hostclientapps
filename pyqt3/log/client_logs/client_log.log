@@ -1082,16 +1082,33 @@
 2022-04-23 20:25:26,043 INFO     Received message from [you] to [all]: fdgfdgfd
 2022-04-23 20:25:26,043 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 34046), raddr=('127.0.0.1', 7777)>,); kwargs: {}
 2022-04-23 20:25:26,043 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 34048), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-04-30 18:58:25,355 DEBUG    Client app started with args: ['-n', 'test1']
 2022-04-30 18:58:25,386 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
-                                                                               2022-04-30 18:58:25,645 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
-                                                                               2022-04-30 18:58:26,065 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
-                                                                               2022-04-30 18:58:26,155 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
-                                                                               2022-04-30 19:02:17,500 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
-                                                                               2022-04-30 19:02:18,289 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45176), raddr=('127.0.0.1', 7777)>,); kwargs: {}
-oto=0, laddr=('127.0.0.1', 45176), raddr=('127.0.0.1', 7777)>); kwargs: {}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               2022-04-30 19:02:18,497 DEBUG    Calling [get_data] from function [start] with args: (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45178), raddr=('127.0.0.1', 7777)>,); kwargs: {}
-REAM, proto=0, laddr=('127.0.0.1', 45178), raddr=('127.0.0.1', 7777)>); kwargs: {}
-                                                                                                                                   Kind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45178), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-04-30 18:58:25,637 DEBUG    Client app started with args: ['-n', 'test2']
+2022-04-30 18:58:25,645 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
+2022-04-30 18:58:26,055 DEBUG    Client app started with args: ['-n', 'test3']
+2022-04-30 18:58:26,065 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
+2022-04-30 18:58:26,146 DEBUG    Client app started with args: ['-n', 'test4']
+2022-04-30 18:58:26,155 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
+2022-04-30 19:02:17,488 DEBUG    Client app started with args: ['-n', 'test1']
+2022-04-30 19:02:17,500 CRITICAL Can't connect to 127.0.0.1:7777: [Errno 111] Connection refused
+2022-04-30 19:02:18,002 DEBUG    Client app started with args: ['-n', 'test2']
+2022-04-30 19:02:18,015 INFO     Connected to server address: 127.0.0.1:7777
+2022-04-30 19:02:18,019 DEBUG    Creating presence message from test2
+2022-04-30 19:02:18,022 DEBUG    Calling [post_data] from function [start] with args: ({'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651327338.022458}, <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45176), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-04-30 19:02:18,032 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-04-30 19:02:18,036 DEBUG    Calling [get_data] from function [start] with args: (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45176), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-04-30 19:02:18,272 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1651327338.2724948, 'alert': 'OK'}
+2022-04-30 19:02:18,274 INFO     Response status OK
+2022-04-30 19:02:18,274 DEBUG    Response processing result: 200: OK
+2022-04-30 19:02:18,274 INFO     Connected to 127.0.0.1:7777 as test2
+2022-04-30 19:02:18,280 INFO     Sender daemon [test2] UP
+2022-04-30 19:02:18,287 INFO     Receiver daemon [test2] UP
+2022-04-30 19:02:18,289 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45176), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-04-30 19:02:18,485 DEBUG    Client app started with args: ['-n', 'test3']
+2022-04-30 19:02:18,496 INFO     Connected to server address: 127.0.0.1:7777
+2022-04-30 19:02:18,496 DEBUG    Creating presence message from test3
+2022-04-30 19:02:18,497 DEBUG    Calling [post_data] from function [start] with args: ({'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651327338.4968984}, <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45178), raddr=('127.0.0.1', 7777)>); kwargs: {}
 2022-04-30 19:02:18,497 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
 2022-04-30 19:02:18,497 DEBUG    Calling [get_data] from function [start] with args: (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45178), raddr=('127.0.0.1', 7777)>,); kwargs: {}
 2022-04-30 19:02:18,680 DEBUG    Client app started with args: ['-n', 'test4']
