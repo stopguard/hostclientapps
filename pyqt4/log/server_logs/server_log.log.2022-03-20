@@ -1,0 +1,9 @@
+2022-03-20 20:42:56,629 DEBUG    Server app started with args: ['/media/sf_selflearning/hostclientapps/HW/lesson6/server.py']
+2022-03-20 20:42:56,630 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-03-20 20:42:56,630 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-03-20 20:43:08,022 DEBUG    Calling [get_data] from function [main] with args: (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 53388)>,); kwargs: {}
+2022-03-20 20:43:08,051 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'account_name': 'Guest'}, 'time': 1647790988.0407646}
+2022-03-20 20:43:08,052 DEBUG    Received data from client ('127.0.0.1', 53388): {'action': 'presence', 'user': {'account_name': 'Guest'}, 'time': 1647790988.0407646}
+2022-03-20 20:43:08,052 INFO     Correct [presence] from [Guest] received
+2022-03-20 20:43:08,052 DEBUG    Calling [post_data] from function [main] with args: ({'response': 200, 'time': 1647790988.0528038, 'alert': 'OK'}, <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 53388)>); kwargs: {}
+2022-03-20 20:43:08,053 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
