@@ -16,6 +16,7 @@ class Storage:
         def __init__(self, username):
             self.id = None
             self.username = username
+            self.register_date = datetime.now()
 
     class Online:
         def __init__(self, user_id, ip, port):
@@ -23,6 +24,7 @@ class Storage:
             self.user_id = user_id
             self.ip = ip
             self.port = port
+            self.login_date = datetime.now()
 
     class History:
         def __init__(self, user_id, ip, port, action):
@@ -33,19 +35,28 @@ class Storage:
             self.action = action
             self.date_time = datetime.now()
 
+    class Contacts:
+        def __init__(self, user_id, contact_id):
+            self.id = None
+            self.user_id = user_id
+            self.contact_id = contact_id
+            self.add_date = datetime.now()
+
     def __init__(self, db_url):
         self.db_engine = create_engine(db_url, echo=False, pool_recycle=7200)
         self.metadata = MetaData()
 
         users_table = Table('Users', self.metadata,
                             Column('id', Integer, primary_key=True),
-                            Column('username', String(96)))
+                            Column('username', String(96)),
+                            Column('register_date', DateTime))
 
         online_table = Table('Online', self.metadata,
                              Column('id', Integer, primary_key=True),
                              Column('user_id', ForeignKey('Users.id')),
                              Column('ip', String),
-                             Column('port', Integer))
+                             Column('port', Integer),
+                             Column('login_date', DateTime))
 
         history_table = Table('History', self.metadata,
                               Column('id', Integer, primary_key=True),
@@ -55,10 +66,17 @@ class Storage:
                               Column('action', String(1)),
                               Column('date_time', DateTime))
 
+        contacts_table = Table('Contacts', self.metadata,
+                               Column('id', Integer, primary_key=True),
+                               Column('user_id', ForeignKey('Users.id')),
+                               Column('contact_id', ForeignKey('Users.id')),
+                               Column('add_date', DateTime))
+
         self.metadata.create_all(self.db_engine)
         mapper(self.Users, users_table)
         mapper(self.Online, online_table)
         mapper(self.History, history_table)
+        mapper(self.Contacts, contacts_table)
 
         self.session = sessionmaker(bind=self.db_engine)()
         self.session.query(self.Online).delete()
@@ -115,21 +133,59 @@ class Storage:
             queryset = queryset.filter_by(**kwargs)
         return queryset.all()
 
+    def get_contacts(self, username):
+        user = self.session.query(self.Users).filter_by(username=username).first()
+        queryset = self.session.query(self.Users.username, self.Contacts).\
+            filter(self.Contacts.user_id == user.id).\
+            join(self.Contacts, self.Contacts.contact_id == self.Users.id)
+        return [contact[0] for contact in queryset.all()]
+
+    def add_contact(self, username, contact):
+        user = self.session.query(self.Users).filter_by(username=username).first()
+        contact = self.session.query(self.Users).filter_by(username=contact).first()
+        if not contact:
+            return
+        exists = self.session.query(self.Contacts).filter_by(user_id=user.id, contact_id=contact.id).count()
+        if not exists:
+            new_contact = self.Contacts(user.id, contact.id)
+            self.session.add(new_contact)
+            self.session.commit()
+
+    def remove_contact(self, username, contact):
+        user = self.session.query(self.Users).filter_by(username=username).first()
+        contact = self.session.query(self.Users).filter_by(username=contact).first()
+        if not contact:
+            return
+        queryset = self.session.query(self.Contacts).filter_by(user_id=user.id, contact_id=contact.id).first()
+        if queryset:
+            self.session.delete(queryset)
+            self.session.commit()
+
+
+def print_db():
+    print('======================================================='
+          '\nALL')
+    pprint(db.get_users())
+    print('ONLINE')
+    pprint(db.get_online())
+    print('HISTORY test1')
+    pprint(db.get_history(username='test1'))
+    print('HISTORY ALL')
+    pprint(db.get_history())
+    print('CONTACTS test1')
+    pprint(db.get_contacts('test1'))
+    print('CONTACTS test2')
+    pprint(db.get_contacts('test2'))
+
 
 if __name__ == '__main__':
-    print('\nINIT\n')
+    print('INIT')
     db = Storage(MAIN_SERVER_DB)
     db.connect_user('test1', '192.168.0.2', '2222')
     db.connect_user('test2', '192.168.0.3', '3333')
-    print('ALL')
-    pprint(db.get_users())
-    print('\nONLINE')
-    pprint(db.get_online())
+    db.add_contact('test1', 'test2')
+    db.add_contact('test2', 'test1')
+    print_db()
     db.disconnect_user(ip='192.168.0.2', port='2222')
-    print('\nALL')
-    pprint(db.get_users())
-    print('\nONLINE')
-    pprint(db.get_online())
-    print('\nHISTORY')
-    pprint(db.get_history(username='test1'))
-
+    db.remove_contact('test2', 'test1')
+    print_db()

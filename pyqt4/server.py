@@ -25,11 +25,19 @@ class Server(metaclass=ServerMaker):
         self.client_socks = []
         self.authorised_socks = {}
         self.guest_socks = []
+        self.listeners_list = []
         self.data_to_send = []
         self.socket = None
         self.listen_ip = ip_address('0.0.0.0')
         self.port = consts.DEFAULT_SERVER_PORT
         self.db = Storage(consts.SERVER_DB)
+        self.actions = {
+            consts.PRESENCE: self.presence,
+            consts.MESSAGE: self.message,
+            consts.CONTACTS_GET: self.get_contacts,
+            consts.CONTACTS_ADD: self.add_contact,
+            consts.CONTACTS_DEL: self.del_contact,
+        }
 
     def start(self, listen_ip, port: int):
         SERVER_LOGGER.debug(f'Initiating listen address: {listen_ip}:{port}.')
@@ -57,74 +65,17 @@ class Server(metaclass=ServerMaker):
                 self.client_socks.append(client_sock)
 
             senders_list = []
-            listeners_list = []
+            self.listeners_list = []
             try:
                 if self.client_socks:
-                    senders_list, listeners_list, _ = select(self.client_socks, self.client_socks, [], 0)
+                    senders_list, self.listeners_list, _ = select(self.client_socks, self.client_socks, [], 0)
             except OSError:
                 pass
 
             if senders_list:
                 for client_sock in senders_list:
                     try:
-                        client_data = get_data(client_sock)
-                        ip, port = client_sock.getpeername()
-                        SERVER_LOGGER.debug(f'Received data from client {ip}:{port}: {client_data}')
-                        processed_data, data_type, target_name = self.data_handler(client_data)
-                        if data_type == consts.PRESENCE:
-                            if target_name == consts.GUEST:
-                                self.guest_socks.append(client_sock)
-                            elif target_name != consts.ALL and target_name not in self.authorised_socks:
-                                self.authorised_socks[target_name] = client_sock
-                            else:
-                                processed_data, _, _ = self.data_handler({consts.ERROR: consts.INVALID_USERNAME})
-                                post_data(processed_data, client_sock)
-                                raise Exception(consts.INVALID_USERNAME)
-                            post_data(processed_data, client_sock)
-                            self.db.connect_user(target_name, ip, port)
-                            continue
-                        if data_type == consts.MESSAGE:
-                            sender_name = processed_data.get(consts.SENDER)
-                            sender_sock = self.authorised_socks.get(sender_name)
-                            target_sock = self.authorised_socks.get(target_name)
-                            is_sender_authorised = sender_sock == client_sock
-                            is_sender_guest = sender_name == consts.GUEST and client_sock in self.guest_socks
-                            SERVER_LOGGER.debug(f'msg attrs: {sender_name=}, {sender_sock=}, {target_sock=}, '
-                                                f'{is_sender_authorised=}, {is_sender_guest}')
-                            if not is_sender_authorised and not is_sender_guest:
-                                SERVER_LOGGER.error(f'sender {sender_name} is not authorised')
-                                processed_data, _, _ = self.data_handler({consts.ERROR: consts.INVALID_SENDER})
-                                post_data(processed_data, client_sock)
-                                raise Exception(consts.INVALID_SENDER)
-                            elif is_sender_authorised and target_sock:
-                                SERVER_LOGGER.info(f'sender {sender_name} send private msg to {target_name}')
-                                try:
-                                    if target_sock not in listeners_list:
-                                        raise Exception('Lost connection to client')
-                                    post_data(processed_data, target_sock)
-                                    if sender_name != target_name:
-                                        post_data(processed_data, client_sock)
-                                    continue
-                                except Exception as err:
-                                    ip, port = target_sock.getpeername()
-                                    SERVER_LOGGER.warning(f'Lost connection to {ip}:{port}. '
-                                                          f'Connection dropped. Exception: {err}')
-                                    target_sock.close()
-                                    self.db.disconnect_user(ip=ip, port=port)
-                                    self.client_socks.remove(target_sock)
-                                    del self.authorised_socks[target_name]
-                            elif target_name == consts.ALL:
-                                self.data_to_send.append(processed_data)
-                                continue
-                            processed_data, _, _ = self.data_handler({
-                                consts.ACTION: consts.MESSAGE,
-                                consts.TIME: time(),
-                                consts.USER: {consts.ACCOUNT_NAME: consts.SERVER},
-                                consts.RECIPIENT: sender_name,
-                                consts.MESSAGE_TEXT: f'{consts.INVALID_RECIPIENT} ({target_name})',
-                            })
-                            post_data(processed_data, client_sock)
-                            continue
+                        self.data_handler(client_sock)
                     except Exception as err:
                         ip, port = client_sock.getpeername()
                         SERVER_LOGGER.warning(f'Wrong data from client {ip}:{port}. '
@@ -137,12 +88,12 @@ class Server(metaclass=ServerMaker):
                                 if value == client_sock:
                                     del self.authorised_socks[key]
                                     break
-                        self.db.disconnect_user(ip=ip, port=port)
                         self.client_socks.remove(client_sock)
+                        self.db.disconnect_user(ip=ip, port=port)
 
-            if self.data_to_send and listeners_list:
+            if self.data_to_send and self.listeners_list:
                 current_data = self.data_to_send[0]
-                for current_listener in listeners_list:
+                for current_listener in self.listeners_list:
                     try:
                         post_data(current_data, current_listener)
                     except Exception as err:
@@ -164,49 +115,130 @@ class Server(metaclass=ServerMaker):
                         current_listener.close()
                 del self.data_to_send[0]
 
-    @staticmethod
-    def data_handler(data: dict) -> (dict, str, str):
+    def data_handler(self, client_sock: socket.SocketType):
         """
         handle received data
-        :param data: received data
+        :param client_sock: sender socket
         :returns: data to send, data type, recipient
         """
+        data = get_data(client_sock)
+        ip, port = client_sock.getpeername()
+        SERVER_LOGGER.debug(f'Received data from client {ip}:{port}: {data}')
         error = consts.BAD_REQUEST
-        try:
+        log_string = f'Incorrect request received: {data}'
+        if type(data) == dict:
             error = data.get(consts.ERROR) or error
-        except AttributeError as err:
-            SERVER_LOGGER.error(f'Received data is not dict: {data}\n({err})')
-        else:
             action = data.get(consts.ACTION)
             time_str = data.get(consts.TIME)
             account_name = data.get(consts.USER, {}).get(consts.ACCOUNT_NAME)
-            recipient = consts.ALL if account_name == consts.GUEST else data.get(consts.RECIPIENT, consts.ALL)
-            message_text = data.get(consts.MESSAGE_TEXT)
-            is_basic_checked = time_str and account_name
-            if action == consts.PRESENCE and is_basic_checked:
-                SERVER_LOGGER.info(f"Correct [{action}] from [{account_name}] received")
-                result = {
-                    consts.RESPONSE: 200,
-                    consts.TIME: time(),
-                    consts.ALERT: 'OK',
-                }
-                return result, consts.PRESENCE, account_name
-            elif action == consts.MESSAGE and is_basic_checked and message_text:
-                result = {
-                    consts.ACTION: consts.MESSAGE,
-                    consts.TIME: time(),
-                    consts.SENDER: account_name,
-                    consts.RECIPIENT: recipient,
-                    consts.MESSAGE_TEXT: message_text,
-                }
-                return result, consts.MESSAGE, recipient
-            SERVER_LOGGER.warning(f'Incorrect request received: {data}')
+            if time_str and account_name and action in self.actions:
+                self.actions[action](data, client_sock)
+                return
+        else:
+            log_string = f'Received data is not dict: {data}'
+
+        # Error response for incorrect requests
+        self.error_handler(error, log_string, client_sock)
+
+    def presence(self, data: dict, client_sock: socket.SocketType):
+        account_name = data[consts.USER][consts.ACCOUNT_NAME]
+        result = {
+            consts.RESPONSE: 200,
+            consts.TIME: time(),
+            consts.ALERT: 'OK',
+        }
+        if account_name == consts.GUEST:
+            self.guest_socks.append(client_sock)
+        elif account_name != consts.ALL and account_name not in self.authorised_socks:
+            self.authorised_socks[account_name] = client_sock
+        else:
+            self.error_handler(consts.INVALID_USERNAME, f'{consts.INVALID_USERNAME} in request {data}', client_sock)
+            raise Exception(consts.INVALID_USERNAME)
+        SERVER_LOGGER.info(f"Correct [{consts.PRESENCE}] from [{account_name}] received")
+        post_data(result, client_sock)
+        ip, port, *args = client_sock.getpeername()
+        self.db.connect_user(account_name, ip, port)
+
+    def message(self, data: dict, client_sock: socket.SocketType):
+        message_text = data.get(consts.MESSAGE_TEXT)
+
+        if message_text:
+            sender_name = data[consts.USER][consts.ACCOUNT_NAME]
+            recipient_name = consts.ALL if sender_name == consts.GUEST else data.get(consts.RECIPIENT, consts.ALL)
+            SERVER_LOGGER.info(f"Correct [{consts.MESSAGE}] from [{sender_name}] received")
+            sender_sock = self.authorised_socks.get(sender_name)
+            target_sock = self.authorised_socks.get(recipient_name)
+            is_sender_authorised = sender_sock == client_sock
+            is_sender_guest = sender_name == consts.GUEST and client_sock in self.guest_socks
+            SERVER_LOGGER.debug(f'msg attrs: {sender_name=}, {sender_sock=}, {target_sock=}, '
+                                f'{is_sender_authorised=}, {is_sender_guest=}')
+            sent_data = {
+                consts.ACTION: consts.MESSAGE,
+                consts.TIME: time(),
+                consts.SENDER: sender_name,
+                consts.RECIPIENT: recipient_name,
+                consts.MESSAGE_TEXT: message_text,
+            }
+
+            # Drop unauthorised client
+            if not is_sender_authorised and not is_sender_guest:
+                self.error_handler(consts.INVALID_SENDER, f'sender {sender_name} is not authorised', client_sock)
+                raise Exception(consts.INVALID_SENDER)
+
+            # Private message
+            elif is_sender_authorised and target_sock:
+                SERVER_LOGGER.info(f'sender {sender_name} send private msg to {recipient_name}')
+                try:
+                    if target_sock not in self.listeners_list:
+                        raise Exception('Lost connection to client')
+                    post_data(sent_data, target_sock)
+                    if sender_name != recipient_name:
+                        post_data(sent_data, client_sock)
+                    return
+                except Exception as err:
+                    ip, port = target_sock.getpeername()
+                    SERVER_LOGGER.warning(f'Lost connection to {ip}:{port}. '
+                                          f'Connection dropped. Exception: {err}')
+                    target_sock.close()
+                    self.db.disconnect_user(ip=ip, port=port)
+                    self.client_socks.remove(target_sock)
+                    del self.authorised_socks[recipient_name]
+
+            # Global message
+            elif recipient_name == consts.ALL:
+                self.data_to_send.append(sent_data)
+                return
+
+            # Wrong recipient name
+            sent_data.update({
+                consts.SENDER: consts.SERVER,
+                consts.RECIPIENT: sender_name,
+                consts.MESSAGE_TEXT: f'{consts.INVALID_RECIPIENT} ({recipient_name})'
+            })
+            post_data(sent_data, client_sock)
+            return
+
+        # Empty message text
+        self.error_handler(consts.BAD_REQUEST, f'Empty message text: {data}', client_sock)
+
+    def get_contacts(self, data: dict, client_sock: socket.SocketType):
+        pass
+
+    def add_contact(self, data: dict, client_sock: socket.SocketType):
+        pass
+
+    def del_contact(self, data: dict, client_sock: socket.SocketType):
+        pass
+
+    @staticmethod
+    def error_handler(error: str, log_string: str, client_sock: socket.SocketType):
+        SERVER_LOGGER.error(log_string or error)
         result = {
             consts.RESPONSE: 400,
             consts.TIME: time(),
             consts.ERROR: error,
         }
-        return result, consts.RESPONSE, ''
+        post_data(result, client_sock)
 
 
 def extract_args() -> (str, int):
