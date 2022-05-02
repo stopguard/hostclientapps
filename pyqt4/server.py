@@ -222,23 +222,59 @@ class Server(metaclass=ServerMaker):
         self.error_handler(consts.BAD_REQUEST, f'Empty message text: {data}', client_sock)
 
     def get_contacts(self, data: dict, client_sock: socket.SocketType):
-        pass
+        client_name = data[consts.USER][consts.ACCOUNT_NAME]
+        if client_name != consts.GUEST:
+            contacts = self.db.get_contacts(client_name)
+            response = {
+                consts.RESPONSE: 200,
+                consts.TIME: time(),
+                consts.ALERT: contacts,
+            }
+            post_data(response, client_sock)
+            return
+        self.error_handler(consts.INVALID_USERNAME, f"Guests can't use contact list. Data: {data}", client_sock)
 
     def add_contact(self, data: dict, client_sock: socket.SocketType):
-        pass
+        client_name = data[consts.USER][consts.ACCOUNT_NAME]
+        contact_name = data.get(consts.CONTACT_NAME)
+        if client_name != consts.GUEST and contact_name and client_name != contact_name:
+            self.db.add_contact(client_name, contact_name)
+            response = {
+                consts.RESPONSE: 202,
+                consts.TIME: time(),
+                consts.ALERT: 'OK',
+            }
+            post_data(response, client_sock)
+            return
+        self.error_handler(consts.INVALID_USERNAME,
+                           f"Client is Guest or incorrect contact name. Data {data}",
+                           client_sock)
 
     def del_contact(self, data: dict, client_sock: socket.SocketType):
-        pass
+        client_name = data[consts.USER][consts.ACCOUNT_NAME]
+        contact_name = data.get(consts.CONTACT_NAME)
+        if client_name != consts.GUEST and contact_name:
+            self.db.remove_contact(client_name, contact_name)
+            response = {
+                consts.RESPONSE: 202,
+                consts.TIME: time(),
+                consts.ALERT: 'OK',
+            }
+            post_data(response, client_sock)
+            return
+        self.error_handler(consts.INVALID_USERNAME,
+                           f"Client is Guest or contact name not found. Data {data}",
+                           client_sock)
 
     @staticmethod
     def error_handler(error: str, log_string: str, client_sock: socket.SocketType):
         SERVER_LOGGER.error(log_string or error)
-        result = {
+        response = {
             consts.RESPONSE: 400,
             consts.TIME: time(),
             consts.ERROR: error,
         }
-        post_data(result, client_sock)
+        post_data(response, client_sock)
 
 
 def extract_args() -> (str, int):
