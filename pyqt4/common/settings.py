@@ -6,18 +6,21 @@ Application variables
 
 # Default values:
 # DEFAULT_LISTEN_IP = '0.0.0.0'
-# MAIN_SERVER_DB = 'sqlite:///server.db3'
-# SERVER_DB = 'sqlite:///common/server.db3'
+# MAIN_SERVER_DB = 'sqlite:///db/server.db3'
+# SERVER_DB = 'sqlite:///common/db/server.db3'
 DEFAULT_LISTEN_IP = '0.0.0.0'
-MAIN_SERVER_DB = 'sqlite:///server.db3'
-SERVER_DB = 'sqlite:///common/server.db3'
+MAIN_SERVER_DB = 'sqlite:///db/server.db3'
+SERVER_DB = 'sqlite:///common/db/server.db3'
 
 # CLIENT SIDE
 
 # Default values:
 # DEFAULT_SERVER_IP = '127.0.0.1'
+# MAIN_CLIENT_DB = 'sqlite:///db/client_'
+# CLIENT_DB = 'sqlite:///common/db/client_'
 DEFAULT_SERVER_IP = '127.0.0.1'
-
+MAIN_CLIENT_DB = 'sqlite:///db/client_'
+CLIENT_DB = 'sqlite:///common/db/client_'
 
 # OTHERS
 
@@ -40,53 +43,77 @@ DEFAULT_SERVER_PORT = 7777
 # ALERT = 'alert'
 # ALL = 'all'
 # BAD_REQUEST = 'Bad request'
-# DISCONNECT = 'disconnect'
-# CLIENT_HELP = '\nHELP INFO\n' \
-#               'send every nonempty message for all readers\n' \
-#               'for private message send "<username>/p/<message>"\n' \
-#               'examples:\n' \
-#               'user1/p/hello world\n' \
-#               'user1 /p/ hello world\n' \
-#               'send "hello world" to "user1"'
-# CONNECT = 'connect'
+# CONNECT = 'Connect'
+# CONNECT_KEY = 'C'
+# DISCONNECT = 'Disconnect'
+# DISCONNECT_KEY = 'D'
 # ERROR = 'error'
+# CONTACTS_ADD = 'add_contact'
+# CONTACTS_ADD_KEY = '/add_contact'
+# CONTACTS_DEL = 'del_contact'
+# CONTACTS_DEL_KEY = '/del_contact'
+# CONTACTS_GET = 'get_contacts'
 # GUEST = 'Guest'
-# INVALID_RECIPIENT = 'Recipient is offline'
+# HELP_KEYS = ['/h', '/help']
+# REFRESH_CONTACTS_KEYS = ['/refresh_contacts', '/rc']
+# GET_CONTACTS_KEYS = ['/contacts', '/c']
+# INVALID_RECIPIENT = 'Recipient is not found'
 # INVALID_SENDER = 'Invalid sender'
 # INVALID_USERNAME = 'Invalid username'
 # MESSAGE = 'message'
 # MESSAGE_TEXT = 'text'
 # OK = 'OK'
 # PRESENCE = 'presence'
+# PRIVATE_DELIMITER = '/p/'
 # RECIPIENT = 'recipient'
 # RESPONSE = 'response'
 # SENDER = 'sender'
 # SERVER = 'SERVER'
+# CONTACT_NAME = 'contact name'
 # TIME = 'time'
 # USER = 'user'
 # YOU = 'you'
+# CLIENT_HELP = '\nHELP INFO\n' \
+#               'Send every nonempty message for all readers\n' \
+#               f'For private message send "<username>{PRIVATE_DELIMITER}<message>"\n' \
+#               'examples:\n' \
+#               f'  user1{PRIVATE_DELIMITER}hello world\n' \
+#               f'  user1 {PRIVATE_DELIMITER} hello world\n' \
+#               '  send "hello world" to "user1"\n\n' \
+#               'Commands for load contact list from the server:\n' \
+#               f'  {REFRESH_CONTACTS_KEYS}\n' \
+#               f'example:\n' \
+#               f'  {REFRESH_CONTACTS_KEYS[0]}\n\n' \
+#               f'Commands for print your contacts:\n' \
+#               f'  {GET_CONTACTS_KEYS}\n' \
+#               f'example:\n' \
+#               f'  {GET_CONTACTS_KEYS[0]}\n\n' \
+#               f'For add user to contact list send "{CONTACTS_ADD_KEY} <username>"\n' \
+#               f'example:\n' \
+#               f'  {CONTACTS_ADD_KEY} user1\n\n' \
+#               f'For remove user from contact list send "{CONTACTS_DEL_KEY} <username>"\n' \
+#               f'example:\n' \
+#               f'  {CONTACTS_DEL_KEY} user1'
 
 ACCOUNT_NAME = 'username'
 ACTION = 'action'
 ALERT = 'alert'
 ALL = 'all'
 BAD_REQUEST = 'Bad request'
-CLIENT_HELP = '\nHELP INFO\n' \
-              'send every nonempty message for all readers\n' \
-              'for private message send "<username>/p/<message>"\n' \
-              'examples:\n' \
-              'user1/p/hello world\n' \
-              'user1 /p/ hello world\n' \
-              'send "hello world" to "user1"'
 CONNECT = 'Connect'
 CONNECT_KEY = 'C'
 DISCONNECT = 'Disconnect'
 DISCONNECT_KEY = 'D'
 ERROR = 'error'
-CONTACTS_ADD = 'add_contacts'
-CONTACTS_DEL = 'del_contacts'
+CONTACTS_ADD = 'add_contact'
+CONTACTS_ADD_KEY = '/add_contact'
+CONTACTS_DEL = 'del_contact'
+CONTACTS_DEL_KEY = '/del_contact'
 CONTACTS_GET = 'get_contacts'
 GUEST = 'Guest'
+HELP_KEYS = ['/h', '/help']
+REFRESH_CONTACTS_KEYS = ['/refresh_contacts', '/rc']
+GET_CONTACTS_KEYS = ['/contacts', '/c']
 INVALID_RECIPIENT = 'Recipient is not found'
 INVALID_SENDER = 'Invalid sender'
 INVALID_USERNAME = 'Invalid username'
@@ -94,6 +121,7 @@ MESSAGE = 'message'
 MESSAGE_TEXT = 'text'
 OK = 'OK'
 PRESENCE = 'presence'
+PRIVATE_DELIMITER = '/p/'
 RECIPIENT = 'recipient'
 RESPONSE = 'response'
 SENDER = 'sender'
@@ -102,7 +130,32 @@ CONTACT_NAME = 'contact name'
 TIME = 'time'
 USER = 'user'
 YOU = 'you'
+CLIENT_HELP = '\nHELP INFO\n' \
+              'Send every nonempty message for all readers\n' \
+              f'For private message send "<username>{PRIVATE_DELIMITER}<message>"\n' \
+              'examples:\n' \
+              f'  user1{PRIVATE_DELIMITER}hello world\n' \
+              f'  user1 {PRIVATE_DELIMITER} hello world\n' \
+              '  send "hello world" to "user1"\n\n' \
+              'Commands for load contact list from the server:\n' \
+              f'  {REFRESH_CONTACTS_KEYS}\n' \
+              f'example:\n' \
+              f'  {REFRESH_CONTACTS_KEYS[0]}\n\n' \
+              f'Commands for print your contacts:\n' \
+              f'  {GET_CONTACTS_KEYS}\n' \
+              f'example:\n' \
+              f'  {GET_CONTACTS_KEYS[0]}\n\n' \
+              f'For add user to contact list send "{CONTACTS_ADD_KEY} <username>"\n' \
+              f'example:\n' \
+              f'  {CONTACTS_ADD_KEY} user1\n\n' \
+              f'For remove user from contact list send "{CONTACTS_DEL_KEY} <username>"\n' \
+              f'example:\n' \
+              f'  {CONTACTS_DEL_KEY} user1'
 
 # Key dicts
-ACTIONS_DICT = {CONNECT_KEY: CONNECT,
-                DISCONNECT_KEY: DISCONNECT}
+ACTIONS_DICT = {
+    CONNECT_KEY: CONNECT,
+    DISCONNECT_KEY: DISCONNECT,
+    CONTACTS_ADD_KEY: CONTACTS_ADD,
+    CONTACTS_DEL_KEY: CONTACTS_DEL
+}

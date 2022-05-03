@@ -1,3 +1,4 @@
+import json
 import logging
 import socket
 import sys
@@ -119,7 +120,6 @@ class Server(metaclass=ServerMaker):
         """
         handle received data
         :param client_sock: sender socket
-        :returns: data to send, data type, recipient
         """
         data = get_data(client_sock)
         ip, port = client_sock.getpeername()
@@ -228,7 +228,7 @@ class Server(metaclass=ServerMaker):
             response = {
                 consts.RESPONSE: 200,
                 consts.TIME: time(),
-                consts.ALERT: contacts,
+                consts.ALERT: json.dumps(contacts),
             }
             post_data(response, client_sock)
             return

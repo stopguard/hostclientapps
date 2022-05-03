@@ -1,12 +1,15 @@
+import json
 import logging
 import socket
 import sys
 from argparse import ArgumentParser
-from threading import Thread
+from pprint import pprint
+from threading import Thread, Lock
 from time import time, sleep
 
 import common.settings as consts
 import log.client_log_config
+from common.client_db import Storage
 from common.metaclasses import ClientMaker
 from common.utils import get_data, post_data
 
@@ -20,9 +23,12 @@ class Client(metaclass=ClientMaker):
         self.server_sock = None
         self.sender_daemon = None
         self.reader_daemon = None
+        self.db = None
+        self.lock = Lock()
 
     def start(self, server_ip, server_port, username):
         self.username = username
+        self.db = Storage(consts.CLIENT_DB, username)
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as self.server_sock:
 
             # connection block
@@ -35,15 +41,8 @@ class Client(metaclass=ClientMaker):
 
             # authorisation block
             print(f'Connecting to {server_ip}:{server_port} as {self.username}')
-            data_to_send = self.presence()
-            post_data(data_to_send, self.server_sock)
-            try:
-                response = get_data(self.server_sock)
-                response = self.response_handler(response)
-                CLIENT_LOGGER.debug(f'Response processing result: {response}')
-            except Exception as err:
-                CLIENT_LOGGER.error(f'Wrong response. Exception: {err}')
-                exit(1)
+            self.presence()
+            self.refresh_contacts()
 
             CLIENT_LOGGER.info(f'Connected to {server_ip}:{server_port} as {self.username}')
 
@@ -70,19 +69,28 @@ class Client(metaclass=ClientMaker):
 
     def sender_cycle(self):
         while True:
-            message = input('Message (send /h for help): ')
+            message = input('Message (send /h for help): ').strip()
             if not message:
                 print("can't send empty message!")
                 CLIENT_LOGGER.warning(f'prevent send empty message')
                 continue
-            if message == '/h':
-                print(consts.CLIENT_HELP)
-                continue
-            try:
-                post_data(self.create_message(message), self.server_sock)
-            except (ConnectionResetError, ConnectionError, ConnectionAbortedError) as err:
-                CLIENT_LOGGER.critical(f'Connection to server has dropped: {err}')
-                exit(1)
+
+            with self.lock:
+                if message in consts.HELP_KEYS:
+                    print(consts.CLIENT_HELP)
+                elif message in consts.REFRESH_CONTACTS_KEYS:
+                    self.refresh_contacts()
+                elif message in consts.GET_CONTACTS_KEYS:
+                    self.get_contacts()
+                elif message[:len(consts.CONTACTS_ADD_KEY)] == consts.CONTACTS_ADD_KEY \
+                        or message[:len(consts.CONTACTS_DEL_KEY)] == consts.CONTACTS_DEL_KEY:
+                    self.edit_contact(message)
+                else:
+                    try:
+                        post_data(self.create_message(message), self.server_sock)
+                    except (ConnectionResetError, ConnectionError, ConnectionAbortedError) as err:
+                        CLIENT_LOGGER.critical(f'Connection to server has dropped: {err}')
+                        exit(1)
 
     def reader_cycle(self):
         while True:
@@ -92,20 +100,80 @@ class Client(metaclass=ClientMaker):
                 CLIENT_LOGGER.critical(f'Connection to server has dropped: {err}')
                 exit(1)
 
-    def presence(self) -> dict:
-        """
-        Generate PRESENCE data
-        :return: data to send
-        """
+    def presence(self):
         CLIENT_LOGGER.debug(f'Creating presence message from {self.username}')
-        return {
+        request_data = {
             consts.ACTION: consts.PRESENCE,
             consts.USER: {consts.ACCOUNT_NAME: self.username},
             consts.TIME: time(),
         }
+        post_data(request_data, self.server_sock)
+        try:
+            response = get_data(self.server_sock)
+            status, message = self.response_handler(response)
+            CLIENT_LOGGER.debug(f'Response PRESENCE result: {status}: {message}')
+            if status and 200 <= status < 300:
+                print('Successfully logged in')
+                return
+            raise Exception(f'{status}: {message}')
+        except Exception as err:
+            CLIENT_LOGGER.error(f'Wrong response. Exception: {err}')
+            exit(1)
+
+    def refresh_contacts(self):
+        CLIENT_LOGGER.debug(f'Creating refresh contacts request from {self.username}')
+        request_data = {
+            consts.ACTION: consts.CONTACTS_GET,
+            consts.TIME: time(),
+            consts.USER: {consts.ACCOUNT_NAME: self.username},
+        }
+        post_data(request_data, self.server_sock)
+        try:
+            response = get_data(self.server_sock)
+            status, message = self.response_handler(response)
+            CLIENT_LOGGER.debug(f'Response REFRESH CONTACTS result: {status}: {message}')
+            if status and 200 <= status < 300:
+                print('Contacts received')
+                self.db.refresh_contacts(json.loads(message))
+                return
+            print(f'{status}: {message}')
+        except Exception as err:
+            CLIENT_LOGGER.error(f'Wrong response. Exception: {err}')
+
+    def edit_contact(self, command):
+        action, contact_name = f'{command} '.split(' ', maxsplit=1)
+        if not contact_name:
+            log_msg = f'The [{action}] command requires a non-empty contact name!'
+            print(log_msg)
+            CLIENT_LOGGER.warning(log_msg)
+        contact_name = contact_name.strip()
+        action = consts.ACTIONS_DICT[action]
+        CLIENT_LOGGER.debug(f'Creating [{action}] [{contact_name}] request from [{self.username}]')
+        request_data = {
+            consts.ACTION: action,
+            consts.TIME: time(),
+            consts.USER: {consts.ACCOUNT_NAME: self.username},
+            consts.CONTACT_NAME: contact_name,
+        }
+        post_data(request_data, self.server_sock)
+        try:
+            response = get_data(self.server_sock)
+            status, message = self.response_handler(response)
+            CLIENT_LOGGER.debug(f'Response [{action}] [{contact_name}] result: {status}: {message}')
+            print(f'{status}: {message}')
+            if status and 200 <= status < 300:
+                if action == consts.CONTACTS_ADD:
+                    self.db.add_contact(contact_name)
+                    return
+                self.db.remove_contact(contact_name)
+        except Exception as err:
+            CLIENT_LOGGER.error(f'Wrong response. Exception: {err}')
+
+    def get_contacts(self):
+        pprint(self.db.get_contacts())
 
     def create_message(self, msg_text: str) -> dict:
-        split_msg = msg_text.split('/p/', 1)
+        split_msg = msg_text.split(consts.PRIVATE_DELIMITER, 1)
         data = {
             consts.ACTION: consts.MESSAGE,
             consts.USER: {consts.ACCOUNT_NAME: self.username},
@@ -120,39 +188,41 @@ class Client(metaclass=ClientMaker):
     def print_message(self, data: dict):
         action = data.get(consts.ACTION)
         sender = data.get(consts.SENDER, False)
-        sender = consts.YOU if sender == self.username else sender
         recipient = data.get(consts.RECIPIENT, False)
-        recipient = consts.YOU if recipient == self.username else recipient
+        processed_sender = consts.YOU if sender == self.username else sender
+        processed_recipient = consts.YOU if recipient == self.username else recipient
         message = data.get(consts.MESSAGE_TEXT, False)
-        if action == consts.MESSAGE and sender and recipient and message:
-            print(f'\n[{sender}] write to [{recipient}]: {message}')
-            CLIENT_LOGGER.info(f'Received message from [{sender}] to [{recipient}]: {message}')
+        if action == consts.MESSAGE and processed_sender and processed_recipient and message:
+            print(f'\n[{processed_sender}] write to [{processed_recipient}]: {message}')
+            with self.lock:
+                self.db.add_to_history(sender, recipient, message)
+            CLIENT_LOGGER.info(f'Received message from [{processed_sender}] to [{processed_recipient}]: {message}')
         else:
             CLIENT_LOGGER.error(f'Receive wrong message data from server: {data}')
 
     @staticmethod
-    def response_handler(response_data: dict) -> str:
+    def response_handler(response_data: dict) -> tuple:
         """
         handle response data
         :param response_data: received data
-        :return: response status string
+        :return: response status and message
         """
         try:
             status_code = response_data.get(consts.RESPONSE, 0)
         except AttributeError as err:
-            CLIENT_LOGGER.error(f'Response data is not dict: {response_data}\n({err})\nResend request please')
+            log_msg = f'Response data is not dict: {response_data}\n({err})\nResend request please'
         else:
             if status_code:
-                if status_code == 200:
+                if 200 <= status_code < 300:
                     result_msg = response_data.get(consts.ALERT, 'OK.')
-                    print('Successfully logged in')
                     CLIENT_LOGGER.info('Response status OK')
                 else:
                     result_msg = response_data.get(consts.ERROR, 'unknown error')
                     CLIENT_LOGGER.warning(f'Warning! Response status: {status_code}: {result_msg}')
-                return f'{status_code}: {result_msg}'
-            CLIENT_LOGGER.error(f'Wrong data received: {response_data}')
-        return 'Wrong data'
+                return status_code, result_msg
+            log_msg = f'Wrong data received: {response_data}'
+        CLIENT_LOGGER.error(log_msg)
+        return None, log_msg
 
 
 def extract_args():

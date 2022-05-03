@@ -42,6 +42,13 @@ class Storage:
             self.contact_id = contact_id
             self.add_date = datetime.now()
 
+    class Log:
+        def __init__(self, lvl, msg):
+            self.id = None
+            self.lvl = lvl
+            self.msg = msg
+            self.date_time = datetime.now()
+
     def __init__(self, db_url):
         self.db_engine = create_engine(db_url, echo=False, pool_recycle=7200)
         self.metadata = MetaData()
@@ -72,11 +79,18 @@ class Storage:
                                Column('contact_id', ForeignKey('Users.id')),
                                Column('add_date', DateTime))
 
+        log_table = Table('Log', self.metadata,
+                          Column('id', Integer, primary_key=True),
+                          Column('lvl', String(10)),
+                          Column('msg', String(1024)),
+                          Column('date_time', DateTime))
+
         self.metadata.create_all(self.db_engine)
         mapper(self.Users, users_table)
         mapper(self.Online, online_table)
         mapper(self.History, history_table)
         mapper(self.Contacts, contacts_table)
+        mapper(self.Log, log_table)
 
         self.session = sessionmaker(bind=self.db_engine)()
         self.session.query(self.Online).delete()
@@ -103,9 +117,6 @@ class Storage:
             self.session.add(self.History(user_session.user_id, user_session.ip, user_session.port, DISCONNECT_KEY))
             self.session.delete(user_session)
             self.session.commit()
-            print(f'Session {kwargs} dropped')
-        else:
-            print(f'Session {kwargs} not found')
 
     def get_users(self):
         queryset = self.session.query(self.Users.id,
@@ -160,6 +171,11 @@ class Storage:
         if queryset:
             self.session.delete(queryset)
             self.session.commit()
+
+    def log(self, lvl, msg):
+        log_msg = self.Log(lvl, msg)
+        self.session.add(log_msg)
+        self.session.commit()
 
 
 def print_db():
