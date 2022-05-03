@@ -1,3 +1,4 @@
+from os.path import join
 """
 Application variables
 """
@@ -6,11 +7,17 @@ Application variables
 
 # Default values:
 # DEFAULT_LISTEN_IP = '0.0.0.0'
-# MAIN_SERVER_DB = 'sqlite:///db/server.db3'
-# SERVER_DB = 'sqlite:///common/db/server.db3'
+# MAIN_SERVER_DB = join('db', 'server.db3')
+# SERVER_DB_PATH = join('common', 'db')
+# SERVER_DB_FILE = 'server.db3'
+# SERVER_DB = join(SERVER_DB_PATH, SERVER_DB_FILE)
+# CONFIG_FILE = 'server_config.json'
 DEFAULT_LISTEN_IP = '0.0.0.0'
-MAIN_SERVER_DB = 'sqlite:///db/server.db3'
-SERVER_DB = 'sqlite:///common/db/server.db3'
+MAIN_SERVER_DB = join('db', 'server.db3')
+SERVER_DB_PATH = join('common', 'db')
+SERVER_DB_FILE = 'server.db3'
+SERVER_DB = join(SERVER_DB_PATH, SERVER_DB_FILE)
+CONFIG_FILE = 'server_config.json'
 
 # CLIENT SIDE
 
@@ -19,8 +26,8 @@ SERVER_DB = 'sqlite:///common/db/server.db3'
 # MAIN_CLIENT_DB = 'sqlite:///db/client_'
 # CLIENT_DB = 'sqlite:///common/db/client_'
 DEFAULT_SERVER_IP = '127.0.0.1'
-MAIN_CLIENT_DB = 'sqlite:///db/client_'
-CLIENT_DB = 'sqlite:///common/db/client_'
+MAIN_CLIENT_DB = f'sqlite:///{join("db", "client_")}'
+CLIENT_DB = f'sqlite:///{join("common", "db", "client_")}'
 
 # OTHERS
 

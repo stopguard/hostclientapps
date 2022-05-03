@@ -75,22 +75,25 @@ class Client(metaclass=ClientMaker):
                 CLIENT_LOGGER.warning(f'prevent send empty message')
                 continue
 
-            with self.lock:
-                if message in consts.HELP_KEYS:
-                    print(consts.CLIENT_HELP)
-                elif message in consts.REFRESH_CONTACTS_KEYS:
-                    self.refresh_contacts()
-                elif message in consts.GET_CONTACTS_KEYS:
-                    self.get_contacts()
-                elif message[:len(consts.CONTACTS_ADD_KEY)] == consts.CONTACTS_ADD_KEY \
-                        or message[:len(consts.CONTACTS_DEL_KEY)] == consts.CONTACTS_DEL_KEY:
-                    self.edit_contact(message)
-                else:
-                    try:
-                        post_data(self.create_message(message), self.server_sock)
-                    except (ConnectionResetError, ConnectionError, ConnectionAbortedError) as err:
-                        CLIENT_LOGGER.critical(f'Connection to server has dropped: {err}')
-                        exit(1)
+            if message[:1] == '/':
+                with self.lock:
+                    if message in consts.HELP_KEYS:
+                        print(consts.CLIENT_HELP)
+                    elif message in consts.REFRESH_CONTACTS_KEYS:
+                        self.refresh_contacts()
+                    elif message in consts.GET_CONTACTS_KEYS:
+                        self.get_contacts()
+                    elif message[:len(consts.CONTACTS_ADD_KEY)] == consts.CONTACTS_ADD_KEY \
+                            or message[:len(consts.CONTACTS_DEL_KEY)] == consts.CONTACTS_DEL_KEY:
+                        self.edit_contact(message)
+                    else:
+                        print(f'invalid command {message}')
+            else:
+                try:
+                    post_data(self.create_message(message), self.server_sock)
+                except (ConnectionResetError, ConnectionError, ConnectionAbortedError) as err:
+                    CLIENT_LOGGER.critical(f'Connection to server has dropped: {err}')
+                    exit(1)
 
     def reader_cycle(self):
         while True:

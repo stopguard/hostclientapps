@@ -1,37 +1,46 @@
 import json
 import logging
+import os.path
 import socket
 import sys
+import threading
 from argparse import ArgumentParser
 from ipaddress import ip_address
 from select import select
 from time import time
+
+from PyQt5.QtWidgets import QApplication, QMessageBox
+from PyQt5.QtCore import QTimer
 
 import common.settings as consts
 import log.server_log_config
 from common.descriptors import IP, Port
 from common.metaclasses import ServerMaker
 from common.server_db import Storage
+from common.server_gui import ServerWindow, ConfigWindow
 from common.utils import get_data, post_data
 
 # server logger init
 SERVER_LOGGER = logging.getLogger('server')
 
 
-class Server(metaclass=ServerMaker):
+class Server(threading.Thread, metaclass=ServerMaker):
     listen_ip = IP()
     port = Port()
 
-    def __init__(self):
+    def __init__(self, listen_ip, port: int, db_path):
+        SERVER_LOGGER.debug(f'Initiating listen address: {listen_ip}:{port}.')
+
+        self.listen_ip = listen_ip
+        self.port = port
+
         self.client_socks = []
         self.authorised_socks = {}
         self.guest_socks = []
         self.listeners_list = []
         self.data_to_send = []
         self.socket = None
-        self.listen_ip = ip_address('0.0.0.0')
-        self.port = consts.DEFAULT_SERVER_PORT
-        self.db = Storage(consts.SERVER_DB)
+        self.db = Storage(db_path)
         self.actions = {
             consts.PRESENCE: self.presence,
             consts.MESSAGE: self.message,
@@ -39,12 +48,9 @@ class Server(metaclass=ServerMaker):
             consts.CONTACTS_ADD: self.add_contact,
             consts.CONTACTS_DEL: self.del_contact,
         }
+        super().__init__()
 
-    def start(self, listen_ip, port: int):
-        SERVER_LOGGER.debug(f'Initiating listen address: {listen_ip}:{port}.')
-
-        self.listen_ip = listen_ip
-        self.port = port
+    def run(self):
 
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as self.socket:
             self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -194,6 +200,7 @@ class Server(metaclass=ServerMaker):
                     post_data(sent_data, target_sock)
                     if sender_name != recipient_name:
                         post_data(sent_data, client_sock)
+                    self.db.register_message(sender_name, recipient_name)
                     return
                 except Exception as err:
                     ip, port = target_sock.getpeername()
@@ -207,6 +214,7 @@ class Server(metaclass=ServerMaker):
             # Global message
             elif recipient_name == consts.ALL:
                 self.data_to_send.append(sent_data)
+                self.db.register_message(sender_name, recipient_name)
                 return
 
             # Wrong recipient name
@@ -278,21 +286,73 @@ class Server(metaclass=ServerMaker):
 
 
 def extract_args() -> (str, int):
-    argv = sys.argv[1:]
-    SERVER_LOGGER.debug(f'Server app started with args: {argv}')
+    config_argv = {}
+    try:
+        with open(consts.CONFIG_FILE, 'r', encoding='utf-8') as config_file:
+            config_argv = json.load(config_file)
+    except Exception:
+        pass
+    commandline_argv = sys.argv[1:]
+    SERVER_LOGGER.debug(f'Server app started with args: {commandline_argv}')
     parser = ArgumentParser()
-    parser.add_argument('-a', '--ip', default=consts.DEFAULT_LISTEN_IP, nargs='?')
-    parser.add_argument('-p', '--port', default=consts.DEFAULT_SERVER_PORT, type=int, nargs='?')
-    args = parser.parse_args(argv)
-    listen_ip = ip_address(args.ip)
-    listen_port = args.port
-    return listen_ip, listen_port
+    parser.add_argument('-a', '--ip', default='', nargs='?')
+    parser.add_argument('-p', '--port', default=0, type=int, nargs='?')
+    commandline_args = parser.parse_args(commandline_argv)
+    db_path = config_argv.get('dbPath')
+    if db_path and (not os.path.exists(db_path) or not os.path.isdir(db_path)):
+        db_path = None
+    db_filename = config_argv.get('dbFilename')
+    full_db_path = os.path.join(db_path, db_filename) if db_path is not None and db_filename else consts.SERVER_DB
+    listen_ip = commandline_args.ip or config_argv.get('listenIp') or consts.DEFAULT_LISTEN_IP
+    listen_port = commandline_args.port or config_argv.get('port') or consts.DEFAULT_SERVER_PORT
+    return ip_address(listen_ip), listen_port, full_db_path, config_argv
+
+
+def main():
+    def update_current_table():
+        main_window.current_table(server.db)
+
+    def edit_config():
+        config_window = ConfigWindow(config)
+        config_window.ok_button.clicked.connect(lambda _: save_config(config_window))
+
+    def save_config(config_window):
+        new_config = config_window.get_widgets_values()
+        try:
+            ip_address(new_config['listenIp'])
+        except ValueError as err:
+            msgbox = QMessageBox()
+            msgbox.warning(config_window, 'Invalid IP address', str(err))
+        else:
+            with open(consts.CONFIG_FILE, 'w', encoding='utf-8') as f:
+                json.dump(new_config, f)
+            config_window.close()
+
+    ip, port, db, config = extract_args()
+    server = Server(ip, port, db)
+    server.daemon = True
+    server.start()
+
+    gui = QApplication(sys.argv)
+    main_window = ServerWindow()
+
+    main_window.show_active_users(server.db)
+
+    timer = QTimer()
+    timer.timeout.connect(update_current_table)
+    timer.start(1000)
+
+    main_window.active_users_button.triggered.connect(lambda _: main_window.show_active_users(server.db))
+    main_window.all_users_button.triggered.connect(lambda _: main_window.show_all_users(server.db))
+    main_window.history_button.triggered.connect(lambda _: main_window.show_history(server.db))
+    main_window.config_button.triggered.connect(edit_config)
+
+    gui.exec_()
 
 
 if __name__ == '__main__':
-    server = Server()
     try:
-        server.start(*extract_args())
+        main()
     except Exception as e:
         SERVER_LOGGER.critical(f'Unknown critical error: {e}')
         exit(1)

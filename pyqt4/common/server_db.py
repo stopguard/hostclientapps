@@ -16,6 +16,8 @@ class Storage:
         def __init__(self, username):
             self.id = None
             self.username = username
+            self.sent = 0
+            self.received = 0
             self.register_date = datetime.now()
 
     class Online:
@@ -49,13 +51,18 @@ class Storage:
             self.msg = msg
             self.date_time = datetime.now()
 
-    def __init__(self, db_url):
-        self.db_engine = create_engine(db_url, echo=False, pool_recycle=7200)
+    def __init__(self, db_path):
+        self.db_engine = create_engine(f'sqlite:///{db_path}',
+                                       echo=False,
+                                       pool_recycle=7200,
+                                       connect_args={'check_same_thread': False})
         self.metadata = MetaData()
 
         users_table = Table('Users', self.metadata,
                             Column('id', Integer, primary_key=True),
                             Column('username', String(96)),
+                            Column('sent', Integer),
+                            Column('received', Integer),
                             Column('register_date', DateTime))
 
         online_table = Table('Online', self.metadata,
@@ -121,7 +128,10 @@ class Storage:
     def get_users(self):
         queryset = self.session.query(self.Users.id,
                                       self.Users.username,
-                                      func.max(self.History.date_time)).join(self.Users)\
+                                      self.Users.sent,
+                                      self.Users.received,
+                                      func.max(self.History.date_time),
+                                      self.Users.register_date).join(self.Users)\
             .filter(self.History.action == CONNECT_KEY)\
             .group_by(self.Users.id)
         return queryset.all()
@@ -129,7 +139,8 @@ class Storage:
     def get_online(self):
         queryset = self.session.query(self.Users.username,
                                       self.Online.ip,
-                                      self.Online.port).join(self.Users)
+                                      self.Online.port,
+                                      self.Online.login_date).join(self.Users)
         return queryset.all()
 
     def get_history(self, username=None, **kwargs):
@@ -171,6 +182,15 @@ class Storage:
         if queryset:
             self.session.delete(queryset)
             self.session.commit()
+
+    def register_message(self, sender, receiver):
+        sender = self.session.query(self.Users).filter_by(username=sender).first()
+        receiver = self.session.query(self.Users).filter_by(username=receiver).first()
+        if sender:
+            sender.sent += 1
+        if receiver:
+            receiver.received += 1
+        self.session.commit()
 
     def log(self, lvl, msg):
         log_msg = self.Log(lvl, msg)
