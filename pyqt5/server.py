@@ -9,16 +9,16 @@ from ipaddress import ip_address
 from select import select
 from time import time
 
-from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtCore import QTimer
+from PyQt5.QtWidgets import QApplication, QMessageBox
 
 import common.settings as consts
-import log.server_log_config
-from common.descriptors import IP, Port
-from common.metaclasses import ServerMaker
-from common.server_db import Storage
-from common.server_gui import ServerWindow, ConfigWindow
+import server_side.log.server_log_config
 from common.utils import get_data, post_data
+from server_side.descriptors import IP, Port
+from server_side.metaclasses import ServerMaker
+from server_side.db.server_db import Storage
+from server_side.gui.server_gui import ServerWindow, ConfigWindow
 
 # server logger init
 SERVER_LOGGER = logging.getLogger('server')

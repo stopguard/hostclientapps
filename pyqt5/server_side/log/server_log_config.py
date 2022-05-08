@@ -5,7 +5,7 @@ import os
 is_self_run = __name__ == '__main__'
 
 # setting up handler
-ending = ('server_logs', 'server_log.log') if is_self_run else ('log', 'server_logs', 'server_log.log')
+ending = ('server_log.log', ) if is_self_run else ('server_side', 'log', 'server_log.log')
 log_path = os.path.join(os.getcwd(), *ending)
 handler = handlers.TimedRotatingFileHandler(log_path, when='midnight', encoding='utf-8')
 handler.setLevel(1)

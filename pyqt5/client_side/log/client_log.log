@@ -2834,3 +2834,169 @@ REAM, proto=0, laddr=('127.0.0.1', 45178), raddr=('127.0.0.1', 7777)>); kwargs: 
 2022-05-04 03:05:06,944 INFO     Received message from [test1] to [you]: ggfdfd
 2022-05-04 03:05:06,944 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45446), raddr=('127.0.0.1', 7777)>,); kwargs: {}
 2022-05-04 03:05:06,944 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 45450), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:49,066 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49750), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+e=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49748), raddr=('127.0.0.1', 7777)>); kwargs: {}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  est4
+2022-05-08 19:26:39,142 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49744), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:39,143 DEBUG    Calling [post_data] from function [presence] with args: ({'action': 'presence', 'user': {'username': 'test4'}, 'time': 1652019999.142928}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49748), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:26:39,143 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:26:39,143 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652019999.1430366, 'alert': 'OK'}
+2022-05-08 19:26:39,143 DEBUG    Calling [get_data] from function [presence] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49748), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:39,144 INFO     Response status OK
+2022-05-08 19:26:39,145 DEBUG    Response PRESENCE result: 200: OK
+2022-05-08 19:26:39,145 DEBUG    Creating refresh contacts request from test1
+2022-05-08 19:26:39,145 DEBUG    Calling [post_data] from function [refresh_contacts] with args: ({'action': 'get_contacts', 'time': 1652019999.1454382, 'user': {'username': 'test1'}}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49746), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:26:39,145 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:26:39,145 DEBUG    Calling [get_data] from function [refresh_contacts] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49746), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:39,143 INFO     Receiver daemon [test2] UP
+2022-05-08 19:26:39,181 DEBUG    Client app started with args: ['-n', 'test3']
+2022-05-08 19:26:39,204 INFO     Connected to server address: 127.0.0.1:7777
+2022-05-08 19:26:39,205 DEBUG    Creating presence message from test3
+2022-05-08 19:26:39,205 DEBUG    Calling [post_data] from function [presence] with args: ({'action': 'presence', 'user': {'username': 'test3'}, 'time': 1652019999.205462}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49750), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:26:39,205 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:26:39,206 DEBUG    Calling [get_data] from function [presence] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49750), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:39,209 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652019999.2085757, 'alert': '[]'}
+2022-05-08 19:26:39,209 INFO     Response status OK
+2022-05-08 19:26:39,209 DEBUG    Response REFRESH CONTACTS result: 200: []
+2022-05-08 19:26:39,210 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652019999.2095084, 'alert': 'OK'}
+2022-05-08 19:26:39,210 INFO     Response status OK
+2022-05-08 19:26:39,210 DEBUG    Response PRESENCE result: 200: OK
+2022-05-08 19:26:39,210 DEBUG    Creating refresh contacts request from test4
+2022-05-08 19:26:39,210 DEBUG    Calling [post_data] from function [refresh_contacts] with args: ({'action': 'get_contacts', 'time': 1652019999.2107294, 'user': {'username': 'test4'}}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49748), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:26:39,211 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:26:39,211 DEBUG    Calling [get_data] from function [refresh_contacts] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49748), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:39,216 INFO     Connected to 127.0.0.1:7777 as test1
+2022-05-08 19:26:39,216 INFO     Sender daemon [test1] UP
+2022-05-08 19:26:39,216 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49746), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:39,217 INFO     Receiver daemon [test1] UP
+2022-05-08 19:26:39,472 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652019999.4723797, 'alert': '[]'}
+2022-05-08 19:26:39,473 INFO     Response status OK
+2022-05-08 19:26:39,473 DEBUG    Response REFRESH CONTACTS result: 200: []
+2022-05-08 19:26:39,473 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652019999.4734156, 'alert': 'OK'}
+2022-05-08 19:26:39,474 INFO     Response status OK
+2022-05-08 19:26:39,474 DEBUG    Response PRESENCE result: 200: OK
+2022-05-08 19:26:39,474 DEBUG    Creating refresh contacts request from test3
+2022-05-08 19:26:39,474 DEBUG    Calling [post_data] from function [refresh_contacts] with args: ({'action': 'get_contacts', 'time': 1652019999.4747405, 'user': {'username': 'test3'}}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49750), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:26:39,475 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:26:39,475 DEBUG    Calling [get_data] from function [refresh_contacts] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49750), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:39,482 INFO     Connected to 127.0.0.1:7777 as test4
+2022-05-08 19:26:39,483 INFO     Sender daemon [test4] UP
+2022-05-08 19:26:39,483 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49748), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:39,484 INFO     Receiver daemon [test4] UP
+2022-05-08 19:26:39,740 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652019999.7396607, 'alert': '[]'}
+2022-05-08 19:26:39,740 INFO     Response status OK
+2022-05-08 19:26:39,740 DEBUG    Response REFRESH CONTACTS result: 200: []
+2022-05-08 19:26:39,746 INFO     Connected to 127.0.0.1:7777 as test3
+2022-05-08 19:26:39,747 INFO     Sender daemon [test3] UP
+2022-05-08 19:26:39,747 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49750), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:39,747 INFO     Receiver daemon [test3] UP
+2022-05-08 19:26:48,980 DEBUG    Message dict created: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1652020008.9804778, 'text': 'saddasdsa'}
+2022-05-08 19:26:48,980 DEBUG    Calling [post_data] from function [sender_cycle] with args: ({'action': 'message', 'user': {'username': 'test4'}, 'time': 1652020008.9804778, 'text': 'saddasdsa'}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49748), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:26:48,981 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:26:49,054 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'time': 1652020009.046917, 'sender': 'test4', 'recipient': 'all', 'text': 'saddasdsa'}
+2022-05-08 19:26:49,054 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'time': 1652020009.046917, 'sender': 'test4', 'recipient': 'all', 'text': 'saddasdsa'}
+2022-05-08 19:26:49,055 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'time': 1652020009.046917, 'sender': 'test4', 'recipient': 'all', 'text': 'saddasdsa'}
+2022-05-08 19:26:49,055 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'time': 1652020009.046917, 'sender': 'test4', 'recipient': 'all', 'text': 'saddasdsa'}
+2022-05-08 19:26:49,062 INFO     Received message from [test4] to [all]: saddasdsa
+2022-05-08 19:26:49,063 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49744), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:49,063 INFO     Received message from [test4] to [all]: saddasdsa
+2022-05-08 19:26:49,064 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49746), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:49,064 INFO     Received message from [you] to [all]: saddasdsa
+2022-05-08 19:26:49,064 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49748), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:26:49,066 INFO     Received message from [test4] to [all]: saddasdsa
+2022-05-08 19:26:49,066 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49750), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:07,033 DEBUG    Client app started with args: ['-n', 'test1']
+2022-05-08 19:35:07,068 INFO     Connected to server address: 127.0.0.1:7777
+2022-05-08 19:35:07,070 DEBUG    Creating presence message from test1
+2022-05-08 19:35:07,074 DEBUG    Calling [post_data] from function [presence] with args: ({'action': 'presence', 'user': {'username': 'test1'}, 'time': 1652020507.0746481}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49856), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:35:07,075 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:35:07,075 DEBUG    Calling [get_data] from function [presence] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49856), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:07,420 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652020507.4193485, 'alert': 'OK'}
+2022-05-08 19:35:07,423 INFO     Response status OK
+2022-05-08 19:35:07,423 DEBUG    Response PRESENCE result: 200: OK
+2022-05-08 19:35:07,423 DEBUG    Creating refresh contacts request from test1
+2022-05-08 19:35:07,423 DEBUG    Calling [post_data] from function [refresh_contacts] with args: ({'action': 'get_contacts', 'time': 1652020507.4237132, 'user': {'username': 'test1'}}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49856), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:35:07,424 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:35:07,424 DEBUG    Calling [get_data] from function [refresh_contacts] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49856), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:07,801 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652020507.8005998, 'alert': '[]'}
+2022-05-08 19:35:07,801 INFO     Response status OK
+2022-05-08 19:35:07,801 DEBUG    Response REFRESH CONTACTS result: 200: []
+2022-05-08 19:35:07,813 INFO     Connected to 127.0.0.1:7777 as test1
+2022-05-08 19:35:07,884 INFO     Sender daemon [test1] UP
+2022-05-08 19:35:07,889 INFO     Receiver daemon [test1] UP
+2022-05-08 19:35:07,890 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49856), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:09,198 DEBUG    Client app started with args: ['-n', 'test2']
+2022-05-08 19:35:09,341 INFO     Connected to server address: 127.0.0.1:7777
+2022-05-08 19:35:09,347 DEBUG    Creating presence message from test2
+2022-05-08 19:35:09,347 DEBUG    Calling [post_data] from function [presence] with args: ({'action': 'presence', 'user': {'username': 'test2'}, 'time': 1652020509.3477798}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49860), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:35:09,349 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:35:09,350 DEBUG    Calling [get_data] from function [presence] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49860), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:09,603 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652020509.6024551, 'alert': 'OK'}
+2022-05-08 19:35:09,604 INFO     Response status OK
+2022-05-08 19:35:09,604 DEBUG    Response PRESENCE result: 200: OK
+2022-05-08 19:35:09,605 DEBUG    Creating refresh contacts request from test2
+2022-05-08 19:35:09,605 DEBUG    Calling [post_data] from function [refresh_contacts] with args: ({'action': 'get_contacts', 'time': 1652020509.6054852, 'user': {'username': 'test2'}}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49860), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:35:09,606 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:35:09,606 DEBUG    Calling [get_data] from function [refresh_contacts] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49860), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:09,902 DEBUG    Client app started with args: ['-n', 'test3']
+2022-05-08 19:35:09,925 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652020509.923148, 'alert': '[]'}
+2022-05-08 19:35:09,926 INFO     Response status OK
+2022-05-08 19:35:09,926 DEBUG    Response REFRESH CONTACTS result: 200: []
+2022-05-08 19:35:09,945 INFO     Connected to 127.0.0.1:7777 as test2
+2022-05-08 19:35:09,948 INFO     Sender daemon [test2] UP
+2022-05-08 19:35:09,948 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49860), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:09,949 INFO     Connected to server address: 127.0.0.1:7777
+2022-05-08 19:35:09,949 DEBUG    Creating presence message from test3
+2022-05-08 19:35:09,949 INFO     Receiver daemon [test2] UP
+2022-05-08 19:35:09,949 DEBUG    Calling [post_data] from function [presence] with args: ({'action': 'presence', 'user': {'username': 'test3'}, 'time': 1652020509.9495933}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49862), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:35:09,949 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:35:09,951 DEBUG    Calling [get_data] from function [presence] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49862), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:10,070 DEBUG    Client app started with args: ['-n', 'test4']
+2022-05-08 19:35:10,092 INFO     Connected to server address: 127.0.0.1:7777
+2022-05-08 19:35:10,092 DEBUG    Creating presence message from test4
+2022-05-08 19:35:10,093 DEBUG    Calling [post_data] from function [presence] with args: ({'action': 'presence', 'user': {'username': 'test4'}, 'time': 1652020510.0929885}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49864), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:35:10,093 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:35:10,093 DEBUG    Calling [get_data] from function [presence] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49864), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:10,097 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652020510.0970237, 'alert': 'OK'}
+2022-05-08 19:35:10,097 INFO     Response status OK
+2022-05-08 19:35:10,097 DEBUG    Response PRESENCE result: 200: OK
+2022-05-08 19:35:10,098 DEBUG    Creating refresh contacts request from test3
+2022-05-08 19:35:10,098 DEBUG    Calling [post_data] from function [refresh_contacts] with args: ({'action': 'get_contacts', 'time': 1652020510.098234, 'user': {'username': 'test3'}}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49862), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:35:10,098 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:35:10,098 DEBUG    Calling [get_data] from function [refresh_contacts] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49862), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:10,106 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652020510.1062756, 'alert': 'OK'}
+2022-05-08 19:35:10,107 INFO     Response status OK
+2022-05-08 19:35:10,107 DEBUG    Response PRESENCE result: 200: OK
+2022-05-08 19:35:10,107 DEBUG    Creating refresh contacts request from test4
+2022-05-08 19:35:10,107 DEBUG    Calling [post_data] from function [refresh_contacts] with args: ({'action': 'get_contacts', 'time': 1652020510.107636, 'user': {'username': 'test4'}}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49864), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:35:10,107 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:35:10,108 DEBUG    Calling [get_data] from function [refresh_contacts] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49864), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:10,371 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652020510.3713326, 'alert': '[]'}
+2022-05-08 19:35:10,372 INFO     Response status OK
+2022-05-08 19:35:10,372 DEBUG    Response REFRESH CONTACTS result: 200: []
+2022-05-08 19:35:10,374 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'response': 200, 'time': 1652020510.3739424, 'alert': '[]'}
+2022-05-08 19:35:10,374 INFO     Response status OK
+2022-05-08 19:35:10,374 DEBUG    Response REFRESH CONTACTS result: 200: []
+2022-05-08 19:35:10,379 INFO     Connected to 127.0.0.1:7777 as test3
+2022-05-08 19:35:10,380 INFO     Sender daemon [test3] UP
+2022-05-08 19:35:10,380 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49862), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:10,380 INFO     Receiver daemon [test3] UP
+2022-05-08 19:35:10,382 INFO     Connected to 127.0.0.1:7777 as test4
+2022-05-08 19:35:10,382 INFO     Sender daemon [test4] UP
+2022-05-08 19:35:10,383 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49864), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:10,383 INFO     Receiver daemon [test4] UP
+2022-05-08 19:35:16,811 DEBUG    Message dict created: {'action': 'message', 'user': {'username': 'test3'}, 'time': 1652020516.811423, 'text': 'cvbcvbcv'}
+2022-05-08 19:35:16,811 DEBUG    Calling [post_data] from function [sender_cycle] with args: ({'action': 'message', 'user': {'username': 'test3'}, 'time': 1652020516.811423, 'text': 'cvbcvbcv'}, <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49862), raddr=('127.0.0.1', 7777)>); kwargs: {}
+2022-05-08 19:35:16,812 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-08 19:35:16,917 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'time': 1652020516.9098265, 'sender': 'test3', 'recipient': 'all', 'text': 'cvbcvbcv'}
+2022-05-08 19:35:16,917 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'time': 1652020516.9098265, 'sender': 'test3', 'recipient': 'all', 'text': 'cvbcvbcv'}
+2022-05-08 19:35:16,918 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'time': 1652020516.9098265, 'sender': 'test3', 'recipient': 'all', 'text': 'cvbcvbcv'}
+2022-05-08 19:35:16,919 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'time': 1652020516.9098265, 'sender': 'test3', 'recipient': 'all', 'text': 'cvbcvbcv'}
+2022-05-08 19:35:16,927 INFO     Received message from [test3] to [all]: cvbcvbcv
+2022-05-08 19:35:16,927 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49856), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:16,927 INFO     Received message from [you] to [all]: cvbcvbcv
+2022-05-08 19:35:16,928 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49862), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:16,928 INFO     Received message from [test3] to [all]: cvbcvbcv
+2022-05-08 19:35:16,928 INFO     Received message from [test3] to [all]: cvbcvbcv
+2022-05-08 19:35:16,928 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49860), raddr=('127.0.0.1', 7777)>,); kwargs: {}
+2022-05-08 19:35:16,928 DEBUG    Calling [get_data] from function [reader_cycle] with args: (<socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 49864), raddr=('127.0.0.1', 7777)>,); kwargs: {}

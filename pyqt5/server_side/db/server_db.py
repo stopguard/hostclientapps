@@ -6,7 +6,7 @@ from datetime import datetime
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, DateTime, ForeignKey, func
 from sqlalchemy.orm import mapper, sessionmaker
 
-sys.path.append(os.path.join(os.getcwd(), '..'))
+sys.path.append(os.path.join(os.getcwd(), '../..'))
 from common.settings import MAIN_SERVER_DB, CONNECT_KEY, DISCONNECT_KEY
 
 

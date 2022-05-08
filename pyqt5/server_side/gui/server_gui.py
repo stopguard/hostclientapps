@@ -3,7 +3,7 @@ import sys
 
 from PyQt5 import QtWidgets, QtGui
 
-sys.path.append(os.path.join(os.getcwd(), '..'))
+sys.path.append(os.path.join(os.getcwd(), '../..'))
 import common.settings as consts
 
 

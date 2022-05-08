@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>client_window</class>
+ <widget class="QMainWindow" name="client_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Chat Client</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QListView" name="contacts_listView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>200</width>
+      <height>390</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="private_lineEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>540</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="contacts_add_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string>Add new contact</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="contacts_remove_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>440</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 85, 0);</string>
+    </property>
+    <property name="text">
+     <string>Remove selected contact</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="private_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>520</y>
+      <width>200</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Private to user:</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="message_plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>500</y>
+      <width>570</width>
+      <height>90</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="message_label">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>480</y>
+      <width>570</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Message text:</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="chat_plainTextEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>30</y>
+      <width>570</width>
+      <height>430</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="contacts_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>200</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Contact list</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="message_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>570</y>
+      <width>200</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string>Send message</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="chat_label">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>10</y>
+      <width>570</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Chat window</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

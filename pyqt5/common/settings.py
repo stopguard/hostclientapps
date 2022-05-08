@@ -7,27 +7,27 @@ Application variables
 
 # Default values:
 # DEFAULT_LISTEN_IP = '0.0.0.0'
-# MAIN_SERVER_DB = join('db', 'server.db3')
-# SERVER_DB_PATH = join('common', 'db')
+# MAIN_SERVER_DB = 'server.db3'
+# SERVER_DB_PATH = join('server_side', 'db')
 # SERVER_DB_FILE = 'server.db3'
 # SERVER_DB = join(SERVER_DB_PATH, SERVER_DB_FILE)
-# CONFIG_FILE = 'server_config.json'
+# CONFIG_FILE = join('server_side', 'server_config.json')
 DEFAULT_LISTEN_IP = '0.0.0.0'
-MAIN_SERVER_DB = join('db', 'server.db3')
-SERVER_DB_PATH = join('common', 'db')
+MAIN_SERVER_DB = 'server.db3'
+SERVER_DB_PATH = join('server_side', 'db')
 SERVER_DB_FILE = 'server.db3'
 SERVER_DB = join(SERVER_DB_PATH, SERVER_DB_FILE)
-CONFIG_FILE = 'server_config.json'
+CONFIG_FILE = join('server_side', 'server_config.json')
 
 # CLIENT SIDE
 
 # Default values:
 # DEFAULT_SERVER_IP = '127.0.0.1'
-# MAIN_CLIENT_DB = 'sqlite:///db/client_'
-# CLIENT_DB = 'sqlite:///common/db/client_'
+# MAIN_CLIENT_DB = f'sqlite:///{join("db", "client_")}'
+# CLIENT_DB = f'sqlite:///{join("client_side", "db", "client_")}'
 DEFAULT_SERVER_IP = '127.0.0.1'
-MAIN_CLIENT_DB = f'sqlite:///{join("db", "client_")}'
-CLIENT_DB = f'sqlite:///{join("common", "db", "client_")}'
+MAIN_CLIENT_DB = f'sqlite:///{join("databases", "client_")}'
+CLIENT_DB = f'sqlite:///{join("client_side", "db", "databases", "client_")}'
 
 # OTHERS
 

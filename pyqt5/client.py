@@ -7,10 +7,10 @@ from pprint import pprint
 from threading import Thread, Lock
 from time import time, sleep
 
+import client_side.log.client_log_config
 import common.settings as consts
-import log.client_log_config
-from common.client_db import Storage
-from common.metaclasses import ClientMaker
+from client_side.db.client_db import Storage
+from client_side.metaclasses import ClientMaker
 from common.utils import get_data, post_data
 
 # client logger init

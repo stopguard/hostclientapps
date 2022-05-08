@@ -4,7 +4,7 @@ import os
 is_self_run = __name__ == '__main__'
 
 # setting up handler
-ending = ('client_logs', 'client_log.log') if is_self_run else ('log', 'client_logs', 'client_log.log')
+ending = ('client_log.log', ) if is_self_run else ('client_side', 'log', 'client_log.log')
 log_path = os.path.join(os.getcwd(), *ending)
 handler = logging.FileHandler(log_path, encoding='utf-8')
 handler.setLevel(logging.NOTSET)
