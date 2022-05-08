@@ -1,0 +1,707 @@
+2022-05-04 01:10:27,986 DEBUG    Server app started with args: []
+2022-05-04 01:10:27,994 CRITICAL Unknown critical error: stat: path should be string, bytes, os.PathLike or integer, not NoneType
+2022-05-04 01:13:33,711 DEBUG    Server app started with args: []
+2022-05-04 01:15:04,926 CRITICAL Unknown critical error: stat: path should be string, bytes, os.PathLike or integer, not NoneType
+2022-05-04 01:15:39,263 DEBUG    Server app started with args: []
+2022-05-04 01:15:39,275 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:15:39,419 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:17:48,924 DEBUG    Server app started with args: []
+2022-05-04 01:17:48,938 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:17:49,047 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:21:45,660 DEBUG    Server app started with args: []
+2022-05-04 01:21:45,663 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:21:45,702 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:23:08,888 DEBUG    Server app started with args: []
+2022-05-04 01:23:08,891 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:23:08,923 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:23:11,530 DEBUG    Connection request from ('127.0.0.1', 44090) received
+2022-05-04 01:23:11,608 DEBUG    Connection request from ('127.0.0.1', 44092) received
+2022-05-04 01:23:11,608 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44090)>,); kwargs: {}
+2022-05-04 01:23:11,608 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651609391.5315404}
+2022-05-04 01:23:11,609 DEBUG    Received data from client 127.0.0.1:44090: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651609391.5315404}
+2022-05-04 01:23:11,609 INFO     Correct [presence] from [test1] received
+2022-05-04 01:23:11,609 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651609391.6093013, 'alert': 'OK'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44090)>); kwargs: {}
+2022-05-04 01:23:11,609 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:23:11,615 WARNING  Wrong data from client 127.0.0.1:44090. Connection dropped. Exception: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139714819544896 and this is thread id 139714687399680.
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT "Users".id AS "Users_id", "Users".username AS "Users_username", "Users".sent AS "Users_sent", "Users".received AS "Users_received", "Users".register_date AS "Users_register_date" 
+FROM "Users" 
+WHERE "Users".username = ?) AS anon_1]
+[parameters: [{}]]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2022-05-04 01:25:40,770 DEBUG    Server app started with args: []
+2022-05-04 01:25:40,774 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:25:40,834 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:25:43,449 DEBUG    Connection request from ('127.0.0.1', 44128) received
+2022-05-04 01:25:43,477 DEBUG    Connection request from ('127.0.0.1', 44130) received
+2022-05-04 01:25:43,477 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44128)>,); kwargs: {}
+2022-05-04 01:25:43,478 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651609543.4504933}
+2022-05-04 01:25:43,478 DEBUG    Received data from client 127.0.0.1:44128: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651609543.4504933}
+2022-05-04 01:25:43,478 INFO     Correct [presence] from [test2] received
+2022-05-04 01:25:43,478 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651609543.478749, 'alert': 'OK'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44128)>); kwargs: {}
+2022-05-04 01:25:43,479 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:25:43,549 DEBUG    Connection request from ('127.0.0.1', 44132) received
+2022-05-04 01:25:43,549 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44128)>,); kwargs: {}
+2022-05-04 01:25:43,549 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651609543.4801295, 'user': {'username': 'test2'}}
+2022-05-04 01:25:43,550 DEBUG    Received data from client 127.0.0.1:44128: {'action': 'get_contacts', 'time': 1651609543.4801295, 'user': {'username': 'test2'}}
+2022-05-04 01:25:43,557 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651609543.5574203, 'alert': '[]'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44128)>); kwargs: {}
+2022-05-04 01:25:43,558 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:25:43,561 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44130)>,); kwargs: {}
+2022-05-04 01:25:43,561 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651609543.479025}
+2022-05-04 01:25:43,561 DEBUG    Received data from client 127.0.0.1:44130: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651609543.479025}
+2022-05-04 01:25:43,561 INFO     Correct [presence] from [test3] received
+2022-05-04 01:25:43,562 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651609543.5618417, 'alert': 'OK'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44130)>); kwargs: {}
+2022-05-04 01:25:43,562 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:25:43,608 DEBUG    Connection request from ('127.0.0.1', 44134) received
+2022-05-04 01:25:43,608 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44130)>,); kwargs: {}
+2022-05-04 01:25:43,608 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651609543.5630999, 'user': {'username': 'test3'}}
+2022-05-04 01:25:43,609 DEBUG    Received data from client 127.0.0.1:44130: {'action': 'get_contacts', 'time': 1651609543.5630999, 'user': {'username': 'test3'}}
+2022-05-04 01:25:43,612 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651609543.6120603, 'alert': '[]'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44130)>); kwargs: {}
+2022-05-04 01:25:43,612 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:25:43,615 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44132)>,); kwargs: {}
+2022-05-04 01:25:43,619 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651609543.5494897}
+2022-05-04 01:25:43,619 DEBUG    Received data from client 127.0.0.1:44132: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651609543.5494897}
+2022-05-04 01:25:43,619 INFO     Correct [presence] from [test1] received
+2022-05-04 01:25:43,620 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651609543.6196852, 'alert': 'OK'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44132)>); kwargs: {}
+2022-05-04 01:25:43,620 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:25:43,904 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44132)>,); kwargs: {}
+2022-05-04 01:25:43,905 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651609543.62175, 'user': {'username': 'test1'}}
+2022-05-04 01:25:43,905 DEBUG    Received data from client 127.0.0.1:44132: {'action': 'get_contacts', 'time': 1651609543.62175, 'user': {'username': 'test1'}}
+2022-05-04 01:25:43,915 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651609543.9152887, 'alert': '[]'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44132)>); kwargs: {}
+2022-05-04 01:25:43,916 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:25:43,917 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44134)>,); kwargs: {}
+2022-05-04 01:25:43,918 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651609543.6087883}
+2022-05-04 01:25:43,918 DEBUG    Received data from client 127.0.0.1:44134: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651609543.6087883}
+2022-05-04 01:25:43,918 INFO     Correct [presence] from [test4] received
+2022-05-04 01:25:43,918 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651609543.9185214, 'alert': 'OK'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44134)>); kwargs: {}
+2022-05-04 01:25:43,919 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:25:44,217 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44134)>,); kwargs: {}
+2022-05-04 01:25:44,217 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651609543.9208202, 'user': {'username': 'test4'}}
+2022-05-04 01:25:44,217 DEBUG    Received data from client 127.0.0.1:44134: {'action': 'get_contacts', 'time': 1651609543.9208202, 'user': {'username': 'test4'}}
+2022-05-04 01:25:44,228 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651609544.2279265, 'alert': '[]'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44134)>); kwargs: {}
+2022-05-04 01:25:44,228 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:26:16,161 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44134)>,); kwargs: {}
+2022-05-04 01:26:16,162 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651609576.0801857, 'text': 'gfhfghg'}
+2022-05-04 01:26:16,162 DEBUG    Received data from client 127.0.0.1:44134: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651609576.0801857, 'text': 'gfhfghg'}
+2022-05-04 01:26:16,162 INFO     Correct [message] from [test4] received
+2022-05-04 01:26:16,162 DEBUG    msg attrs: sender_name='test4', sender_sock=<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44134)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 01:26:16,165 WARNING  Wrong data from client 127.0.0.1:44134. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 01:26:16,172 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651609576.1627705, 'sender': 'test4', 'recipient': 'all', 'text': 'gfhfghg'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44128)>); kwargs: {}
+2022-05-04 01:26:16,172 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:26:16,173 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651609576.1627705, 'sender': 'test4', 'recipient': 'all', 'text': 'gfhfghg'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44130)>); kwargs: {}
+2022-05-04 01:26:16,173 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:26:16,173 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651609576.1627705, 'sender': 'test4', 'recipient': 'all', 'text': 'gfhfghg'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44132)>); kwargs: {}
+2022-05-04 01:26:16,173 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:26:16,174 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651609576.1627705, 'sender': 'test4', 'recipient': 'all', 'text': 'gfhfghg'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 01:30:27,977 DEBUG    Server app started with args: []
+2022-05-04 01:30:27,980 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:30:28,015 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:33:18,880 DEBUG    Server app started with args: []
+2022-05-04 01:33:18,883 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:33:18,929 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:33:47,255 DEBUG    Server app started with args: []
+2022-05-04 01:33:47,258 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:33:47,292 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:35:44,529 DEBUG    Connection request from ('127.0.0.1', 44270) received
+2022-05-04 01:35:44,780 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44270)>,); kwargs: {}
+2022-05-04 01:35:44,781 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651610144.529651}
+2022-05-04 01:35:44,781 DEBUG    Received data from client 127.0.0.1:44270: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651610144.529651}
+2022-05-04 01:35:44,781 INFO     Correct [presence] from [god] received
+2022-05-04 01:35:44,782 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651610144.7818522, 'alert': 'OK'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44270)>); kwargs: {}
+2022-05-04 01:35:44,782 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:35:45,061 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44270)>,); kwargs: {}
+2022-05-04 01:35:45,062 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651610144.7887502, 'user': {'username': 'god'}}
+2022-05-04 01:35:45,062 DEBUG    Received data from client 127.0.0.1:44270: {'action': 'get_contacts', 'time': 1651610144.7887502, 'user': {'username': 'god'}}
+2022-05-04 01:35:45,068 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651610145.0679963, 'alert': '[]'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44270)>); kwargs: {}
+2022-05-04 01:35:45,068 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:36:10,188 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44270)>,); kwargs: {}
+2022-05-04 01:36:10,189 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651610170.1749399, 'text': 'fff'}
+2022-05-04 01:36:10,190 DEBUG    Received data from client 127.0.0.1:44270: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651610170.1749399, 'text': 'fff'}
+2022-05-04 01:36:10,190 INFO     Correct [message] from [god] received
+2022-05-04 01:36:10,190 DEBUG    msg attrs: sender_name='god', sender_sock=<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44270)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 01:36:10,194 WARNING  Wrong data from client 127.0.0.1:44270. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 01:36:10,210 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651610170.1907816, 'sender': 'god', 'recipient': 'all', 'text': 'fff'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 01:42:28,644 DEBUG    Server app started with args: []
+2022-05-04 01:42:28,647 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:42:28,690 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:42:46,527 DEBUG    Connection request from ('127.0.0.1', 44366) received
+2022-05-04 01:42:46,778 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44366)>,); kwargs: {}
+2022-05-04 01:42:46,779 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651610566.5283465}
+2022-05-04 01:42:46,779 DEBUG    Received data from client 127.0.0.1:44366: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651610566.5283465}
+2022-05-04 01:42:46,780 INFO     Correct [presence] from [god] received
+2022-05-04 01:42:46,780 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651610566.7801077, 'alert': 'OK'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44366)>); kwargs: {}
+2022-05-04 01:42:46,781 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:42:47,058 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44366)>,); kwargs: {}
+2022-05-04 01:42:47,059 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651610566.7820227, 'user': {'username': 'god'}}
+2022-05-04 01:42:47,059 DEBUG    Received data from client 127.0.0.1:44366: {'action': 'get_contacts', 'time': 1651610566.7820227, 'user': {'username': 'god'}}
+2022-05-04 01:42:47,065 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651610567.064904, 'alert': '[]'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44366)>); kwargs: {}
+2022-05-04 01:42:47,065 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:43:01,873 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44366)>,); kwargs: {}
+2022-05-04 01:43:01,873 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651610581.6912665, 'text': 'gg'}
+2022-05-04 01:43:01,874 DEBUG    Received data from client 127.0.0.1:44366: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651610581.6912665, 'text': 'gg'}
+2022-05-04 01:43:01,874 INFO     Correct [message] from [god] received
+2022-05-04 01:43:01,874 DEBUG    msg attrs: sender_name='god', sender_sock=<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44366)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 01:43:01,877 WARNING  Wrong data from client 127.0.0.1:44366. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 01:43:01,885 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651610581.8745866, 'sender': 'god', 'recipient': 'all', 'text': 'gg'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 01:47:41,912 DEBUG    Server app started with args: []
+2022-05-04 01:49:15,832 DEBUG    Server app started with args: []
+2022-05-04 01:49:15,835 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 01:49:15,928 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 01:49:17,980 DEBUG    Connection request from ('127.0.0.1', 44450) received
+2022-05-04 01:49:18,122 DEBUG    Connection request from ('127.0.0.1', 44452) received
+2022-05-04 01:49:18,122 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44450)>,); kwargs: {}
+2022-05-04 01:49:18,122 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651610957.9810548}
+2022-05-04 01:49:18,122 DEBUG    Received data from client 127.0.0.1:44450: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651610957.9810548}
+2022-05-04 01:49:18,123 INFO     Correct [presence] from [test1] received
+2022-05-04 01:49:18,123 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651610958.1231825, 'alert': 'OK'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44450)>); kwargs: {}
+2022-05-04 01:49:18,123 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:18,201 DEBUG    Connection request from ('127.0.0.1', 44454) received
+2022-05-04 01:49:18,204 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44450)>,); kwargs: {}
+2022-05-04 01:49:18,204 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651610958.1250904, 'user': {'username': 'test1'}}
+2022-05-04 01:49:18,205 DEBUG    Received data from client 127.0.0.1:44450: {'action': 'get_contacts', 'time': 1651610958.1250904, 'user': {'username': 'test1'}}
+2022-05-04 01:49:18,210 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651610958.210749, 'alert': '[]'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44450)>); kwargs: {}
+2022-05-04 01:49:18,211 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:18,211 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44452)>,); kwargs: {}
+2022-05-04 01:49:18,211 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651610958.1227355}
+2022-05-04 01:49:18,212 DEBUG    Received data from client 127.0.0.1:44452: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651610958.1227355}
+2022-05-04 01:49:18,212 INFO     Correct [presence] from [test3] received
+2022-05-04 01:49:18,212 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651610958.2123168, 'alert': 'OK'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44452)>); kwargs: {}
+2022-05-04 01:49:18,213 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:18,341 DEBUG    Connection request from ('127.0.0.1', 44456) received
+2022-05-04 01:49:18,341 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44452)>,); kwargs: {}
+2022-05-04 01:49:18,341 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651610958.2137055, 'user': {'username': 'test3'}}
+2022-05-04 01:49:18,341 DEBUG    Received data from client 127.0.0.1:44452: {'action': 'get_contacts', 'time': 1651610958.2137055, 'user': {'username': 'test3'}}
+2022-05-04 01:49:18,344 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651610958.3442295, 'alert': '[]'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44452)>); kwargs: {}
+2022-05-04 01:49:18,344 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:18,344 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44454)>,); kwargs: {}
+2022-05-04 01:49:18,344 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651610958.20424}
+2022-05-04 01:49:18,345 DEBUG    Received data from client 127.0.0.1:44454: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651610958.20424}
+2022-05-04 01:49:18,345 INFO     Correct [presence] from [test2] received
+2022-05-04 01:49:18,345 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651610958.3451452, 'alert': 'OK'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44454)>); kwargs: {}
+2022-05-04 01:49:18,349 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:18,615 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44454)>,); kwargs: {}
+2022-05-04 01:49:18,615 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651610958.3502817, 'user': {'username': 'test2'}}
+2022-05-04 01:49:18,616 DEBUG    Received data from client 127.0.0.1:44454: {'action': 'get_contacts', 'time': 1651610958.3502817, 'user': {'username': 'test2'}}
+2022-05-04 01:49:18,619 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651610958.619292, 'alert': '[]'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44454)>); kwargs: {}
+2022-05-04 01:49:18,619 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:18,619 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44456)>,); kwargs: {}
+2022-05-04 01:49:18,619 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651610958.341659}
+2022-05-04 01:49:18,620 DEBUG    Received data from client 127.0.0.1:44456: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651610958.341659}
+2022-05-04 01:49:18,620 INFO     Correct [presence] from [test4] received
+2022-05-04 01:49:18,620 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651610958.6203513, 'alert': 'OK'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44456)>); kwargs: {}
+2022-05-04 01:49:18,620 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:18,883 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44456)>,); kwargs: {}
+2022-05-04 01:49:18,884 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651610958.6218033, 'user': {'username': 'test4'}}
+2022-05-04 01:49:18,884 DEBUG    Received data from client 127.0.0.1:44456: {'action': 'get_contacts', 'time': 1651610958.6218033, 'user': {'username': 'test4'}}
+2022-05-04 01:49:18,887 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651610958.8872538, 'alert': '[]'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44456)>); kwargs: {}
+2022-05-04 01:49:18,887 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:22,155 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44456)>,); kwargs: {}
+2022-05-04 01:49:22,155 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651610962.09594, 'text': 'cvxcvxc'}
+2022-05-04 01:49:22,155 DEBUG    Received data from client 127.0.0.1:44456: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651610962.09594, 'text': 'cvxcvxc'}
+2022-05-04 01:49:22,155 INFO     Correct [message] from [test4] received
+2022-05-04 01:49:22,156 DEBUG    msg attrs: sender_name='test4', sender_sock=<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44456)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 01:49:22,159 WARNING  Wrong data from client 127.0.0.1:44456. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 01:49:22,165 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651610962.1562417, 'sender': 'test4', 'recipient': 'all', 'text': 'cvxcvxc'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44450)>); kwargs: {}
+2022-05-04 01:49:22,166 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:22,166 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651610962.1562417, 'sender': 'test4', 'recipient': 'all', 'text': 'cvxcvxc'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44452)>); kwargs: {}
+2022-05-04 01:49:22,166 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:22,166 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651610962.1562417, 'sender': 'test4', 'recipient': 'all', 'text': 'cvxcvxc'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44454)>); kwargs: {}
+2022-05-04 01:49:22,167 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 01:49:22,167 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651610962.1562417, 'sender': 'test4', 'recipient': 'all', 'text': 'cvxcvxc'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 01:58:36,408 DEBUG    Server app started with args: []
+2022-05-04 01:59:47,345 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 02:01:31,138 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 02:05:22,100 DEBUG    Connection request from ('127.0.0.1', 44656) received
+2022-05-04 02:06:12,422 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44656)>,); kwargs: {}
+2022-05-04 02:06:12,426 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651611936.1136858}
+2022-05-04 02:06:12,427 DEBUG    Received data from client 127.0.0.1:44656: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651611936.1136858}
+2022-05-04 02:06:12,428 INFO     Correct [presence] from [god] received
+2022-05-04 02:06:12,429 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651611972.4283054, 'alert': 'OK'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44656)>); kwargs: {}
+2022-05-04 02:06:12,430 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:07:31,004 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44656)>,); kwargs: {}
+2022-05-04 02:07:31,004 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651612039.815952, 'user': {'username': 'god'}}
+2022-05-04 02:07:31,004 DEBUG    Received data from client 127.0.0.1:44656: {'action': 'get_contacts', 'time': 1651612039.815952, 'user': {'username': 'god'}}
+2022-05-04 02:07:31,020 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651612051.0203414, 'alert': '[]'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44656)>); kwargs: {}
+2022-05-04 02:07:31,021 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:09:43,894 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44656)>,); kwargs: {}
+2022-05-04 02:09:43,894 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651612183.773118, 'text': 'fdfdsfds'}
+2022-05-04 02:09:43,895 DEBUG    Received data from client 127.0.0.1:44656: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651612183.773118, 'text': 'fdfdsfds'}
+2022-05-04 02:09:43,895 INFO     Correct [message] from [god] received
+2022-05-04 02:09:43,895 DEBUG    msg attrs: sender_name='god', sender_sock=<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44656)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 02:09:43,902 WARNING  Wrong data from client 127.0.0.1:44656. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 02:09:43,917 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651612183.8962276, 'sender': 'god', 'recipient': 'all', 'text': 'fdfdsfds'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 02:16:50,637 DEBUG    Server app started with args: []
+2022-05-04 02:16:50,639 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 02:16:50,669 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 02:16:53,397 DEBUG    Connection request from ('127.0.0.1', 44800) received
+2022-05-04 02:16:53,649 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44800)>,); kwargs: {}
+2022-05-04 02:16:53,650 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651612613.3984568}
+2022-05-04 02:16:53,650 DEBUG    Received data from client 127.0.0.1:44800: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651612613.3984568}
+2022-05-04 02:16:53,650 INFO     Correct [presence] from [test1] received
+2022-05-04 02:16:53,651 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651612613.6507847, 'alert': 'OK'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44800)>); kwargs: {}
+2022-05-04 02:16:53,651 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:53,691 DEBUG    Connection request from ('127.0.0.1', 44802) received
+2022-05-04 02:16:53,691 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44800)>,); kwargs: {}
+2022-05-04 02:16:53,692 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651612613.655345, 'user': {'username': 'test1'}}
+2022-05-04 02:16:53,692 DEBUG    Received data from client 127.0.0.1:44800: {'action': 'get_contacts', 'time': 1651612613.655345, 'user': {'username': 'test1'}}
+2022-05-04 02:16:53,697 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651612613.697391, 'alert': '[]'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44800)>); kwargs: {}
+2022-05-04 02:16:53,697 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:53,698 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44802)>,); kwargs: {}
+2022-05-04 02:16:53,698 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651612613.6665585}
+2022-05-04 02:16:53,699 DEBUG    Received data from client 127.0.0.1:44802: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651612613.6665585}
+2022-05-04 02:16:53,699 INFO     Correct [presence] from [test2] received
+2022-05-04 02:16:53,699 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651612613.6993098, 'alert': 'OK'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44802)>); kwargs: {}
+2022-05-04 02:16:53,699 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:53,763 DEBUG    Connection request from ('127.0.0.1', 44804) received
+2022-05-04 02:16:53,763 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44802)>,); kwargs: {}
+2022-05-04 02:16:53,764 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651612613.70681, 'user': {'username': 'test2'}}
+2022-05-04 02:16:53,764 DEBUG    Received data from client 127.0.0.1:44802: {'action': 'get_contacts', 'time': 1651612613.70681, 'user': {'username': 'test2'}}
+2022-05-04 02:16:53,768 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651612613.7681663, 'alert': '[]'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44802)>); kwargs: {}
+2022-05-04 02:16:53,768 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:53,770 DEBUG    Connection request from ('127.0.0.1', 44806) received
+2022-05-04 02:16:53,770 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44804)>,); kwargs: {}
+2022-05-04 02:16:53,770 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651612613.7645383}
+2022-05-04 02:16:53,771 DEBUG    Received data from client 127.0.0.1:44804: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651612613.7645383}
+2022-05-04 02:16:53,771 INFO     Correct [presence] from [test4] received
+2022-05-04 02:16:53,771 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651612613.7715266, 'alert': 'OK'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44804)>); kwargs: {}
+2022-05-04 02:16:53,772 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:54,035 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44804)>,); kwargs: {}
+2022-05-04 02:16:54,035 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651612613.773391, 'user': {'username': 'test4'}}
+2022-05-04 02:16:54,035 DEBUG    Received data from client 127.0.0.1:44804: {'action': 'get_contacts', 'time': 1651612613.773391, 'user': {'username': 'test4'}}
+2022-05-04 02:16:54,039 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651612614.039046, 'alert': '[]'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44804)>); kwargs: {}
+2022-05-04 02:16:54,039 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:54,039 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44806)>,); kwargs: {}
+2022-05-04 02:16:54,039 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651612613.7707505}
+2022-05-04 02:16:54,039 DEBUG    Received data from client 127.0.0.1:44806: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651612613.7707505}
+2022-05-04 02:16:54,040 INFO     Correct [presence] from [test3] received
+2022-05-04 02:16:54,040 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651612614.0400121, 'alert': 'OK'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44806)>); kwargs: {}
+2022-05-04 02:16:54,040 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:54,300 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44806)>,); kwargs: {}
+2022-05-04 02:16:54,300 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651612614.0412686, 'user': {'username': 'test3'}}
+2022-05-04 02:16:54,300 DEBUG    Received data from client 127.0.0.1:44806: {'action': 'get_contacts', 'time': 1651612614.0412686, 'user': {'username': 'test3'}}
+2022-05-04 02:16:54,305 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651612614.3056536, 'alert': '[]'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44806)>); kwargs: {}
+2022-05-04 02:16:54,306 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:58,821 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44806)>,); kwargs: {}
+2022-05-04 02:16:58,821 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test3'}, 'time': 1651612618.6958342, 'text': 'jj'}
+2022-05-04 02:16:58,821 DEBUG    Received data from client 127.0.0.1:44806: {'action': 'message', 'user': {'username': 'test3'}, 'time': 1651612618.6958342, 'text': 'jj'}
+2022-05-04 02:16:58,822 INFO     Correct [message] from [test3] received
+2022-05-04 02:16:58,822 DEBUG    msg attrs: sender_name='test3', sender_sock=<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44806)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 02:16:58,825 WARNING  Wrong data from client 127.0.0.1:44806. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 02:16:58,833 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651612618.8223655, 'sender': 'test3', 'recipient': 'all', 'text': 'jj'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44800)>); kwargs: {}
+2022-05-04 02:16:58,834 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:58,834 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651612618.8223655, 'sender': 'test3', 'recipient': 'all', 'text': 'jj'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44802)>); kwargs: {}
+2022-05-04 02:16:58,834 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:58,834 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651612618.8223655, 'sender': 'test3', 'recipient': 'all', 'text': 'jj'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44804)>); kwargs: {}
+2022-05-04 02:16:58,835 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:16:58,835 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651612618.8223655, 'sender': 'test3', 'recipient': 'all', 'text': 'jj'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 02:29:49,895 DEBUG    Server app started with args: []
+2022-05-04 02:29:49,900 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 02:29:49,988 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 02:29:52,472 DEBUG    Connection request from ('127.0.0.1', 44968) received
+2022-05-04 02:29:52,615 DEBUG    Connection request from ('127.0.0.1', 44970) received
+2022-05-04 02:29:52,616 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44968)>,); kwargs: {}
+2022-05-04 02:29:52,616 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651613392.4732404}
+2022-05-04 02:29:52,617 DEBUG    Received data from client 127.0.0.1:44968: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651613392.4732404}
+2022-05-04 02:29:52,617 INFO     Correct [presence] from [test2] received
+2022-05-04 02:29:52,618 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651613392.6176069, 'alert': 'OK'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44968)>); kwargs: {}
+2022-05-04 02:29:52,618 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:52,780 DEBUG    Connection request from ('127.0.0.1', 44972) received
+2022-05-04 02:29:52,781 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44968)>,); kwargs: {}
+2022-05-04 02:29:52,781 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651613392.62334, 'user': {'username': 'test2'}}
+2022-05-04 02:29:52,782 DEBUG    Received data from client 127.0.0.1:44968: {'action': 'get_contacts', 'time': 1651613392.62334, 'user': {'username': 'test2'}}
+2022-05-04 02:29:52,787 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651613392.7876062, 'alert': '[]'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44968)>); kwargs: {}
+2022-05-04 02:29:52,787 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:52,788 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44970)>,); kwargs: {}
+2022-05-04 02:29:52,788 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651613392.6183743}
+2022-05-04 02:29:52,789 DEBUG    Received data from client 127.0.0.1:44970: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651613392.6183743}
+2022-05-04 02:29:52,789 INFO     Correct [presence] from [test3] received
+2022-05-04 02:29:52,789 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651613392.789173, 'alert': 'OK'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44970)>); kwargs: {}
+2022-05-04 02:29:52,789 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:52,929 DEBUG    Connection request from ('127.0.0.1', 44974) received
+2022-05-04 02:29:52,929 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44970)>,); kwargs: {}
+2022-05-04 02:29:52,930 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651613392.790445, 'user': {'username': 'test3'}}
+2022-05-04 02:29:52,930 DEBUG    Received data from client 127.0.0.1:44970: {'action': 'get_contacts', 'time': 1651613392.790445, 'user': {'username': 'test3'}}
+2022-05-04 02:29:52,933 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651613392.9329255, 'alert': '[]'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44970)>); kwargs: {}
+2022-05-04 02:29:52,933 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:52,933 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44972)>,); kwargs: {}
+2022-05-04 02:29:52,933 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651613392.7826886}
+2022-05-04 02:29:52,934 DEBUG    Received data from client 127.0.0.1:44972: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651613392.7826886}
+2022-05-04 02:29:52,934 INFO     Correct [presence] from [test1] received
+2022-05-04 02:29:52,934 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651613392.9342947, 'alert': 'OK'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44972)>); kwargs: {}
+2022-05-04 02:29:52,934 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:53,194 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44972)>,); kwargs: {}
+2022-05-04 02:29:53,194 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651613392.935675, 'user': {'username': 'test1'}}
+2022-05-04 02:29:53,195 DEBUG    Received data from client 127.0.0.1:44972: {'action': 'get_contacts', 'time': 1651613392.935675, 'user': {'username': 'test1'}}
+2022-05-04 02:29:53,198 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651613393.1981483, 'alert': '[]'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44972)>); kwargs: {}
+2022-05-04 02:29:53,198 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:53,198 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44974)>,); kwargs: {}
+2022-05-04 02:29:53,199 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651613392.9301133}
+2022-05-04 02:29:53,200 DEBUG    Received data from client 127.0.0.1:44974: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651613392.9301133}
+2022-05-04 02:29:53,200 INFO     Correct [presence] from [test4] received
+2022-05-04 02:29:53,200 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651613393.2003205, 'alert': 'OK'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44974)>); kwargs: {}
+2022-05-04 02:29:53,200 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:53,460 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44974)>,); kwargs: {}
+2022-05-04 02:29:53,460 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651613393.2015743, 'user': {'username': 'test4'}}
+2022-05-04 02:29:53,460 DEBUG    Received data from client 127.0.0.1:44974: {'action': 'get_contacts', 'time': 1651613393.2015743, 'user': {'username': 'test4'}}
+2022-05-04 02:29:53,486 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651613393.4860332, 'alert': '[]'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44974)>); kwargs: {}
+2022-05-04 02:29:53,487 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:56,997 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44974)>,); kwargs: {}
+2022-05-04 02:29:56,997 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651613396.8217738, 'text': 'gfgdf'}
+2022-05-04 02:29:56,997 DEBUG    Received data from client 127.0.0.1:44974: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651613396.8217738, 'text': 'gfgdf'}
+2022-05-04 02:29:56,998 INFO     Correct [message] from [test4] received
+2022-05-04 02:29:56,998 DEBUG    msg attrs: sender_name='test4', sender_sock=<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44974)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 02:29:57,001 WARNING  Wrong data from client 127.0.0.1:44974. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 02:29:57,008 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651613396.9984667, 'sender': 'test4', 'recipient': 'all', 'text': 'gfgdf'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44968)>); kwargs: {}
+2022-05-04 02:29:57,008 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:57,008 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651613396.9984667, 'sender': 'test4', 'recipient': 'all', 'text': 'gfgdf'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44970)>); kwargs: {}
+2022-05-04 02:29:57,008 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:57,009 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651613396.9984667, 'sender': 'test4', 'recipient': 'all', 'text': 'gfgdf'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 44972)>); kwargs: {}
+2022-05-04 02:29:57,009 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:29:57,009 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651613396.9984667, 'sender': 'test4', 'recipient': 'all', 'text': 'gfgdf'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 02:37:50,590 DEBUG    Server app started with args: []
+2022-05-04 02:37:50,593 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 02:37:50,623 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 02:37:52,511 DEBUG    Connection request from ('127.0.0.1', 45078) received
+2022-05-04 02:37:52,698 DEBUG    Connection request from ('127.0.0.1', 45080) received
+2022-05-04 02:37:52,699 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45078)>,); kwargs: {}
+2022-05-04 02:37:52,699 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651613872.5121875}
+2022-05-04 02:37:52,699 DEBUG    Received data from client 127.0.0.1:45078: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651613872.5121875}
+2022-05-04 02:37:52,700 INFO     Correct [presence] from [test1] received
+2022-05-04 02:37:52,700 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651613872.7001038, 'alert': 'OK'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45078)>); kwargs: {}
+2022-05-04 02:37:52,700 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:52,788 DEBUG    Connection request from ('127.0.0.1', 45082) received
+2022-05-04 02:37:52,788 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45078)>,); kwargs: {}
+2022-05-04 02:37:52,788 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651613872.7020342, 'user': {'username': 'test1'}}
+2022-05-04 02:37:52,789 DEBUG    Received data from client 127.0.0.1:45078: {'action': 'get_contacts', 'time': 1651613872.7020342, 'user': {'username': 'test1'}}
+2022-05-04 02:37:52,793 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651613872.7937093, 'alert': '[]'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45078)>); kwargs: {}
+2022-05-04 02:37:52,794 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:52,794 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45080)>,); kwargs: {}
+2022-05-04 02:37:52,794 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651613872.6992543}
+2022-05-04 02:37:52,795 DEBUG    Received data from client 127.0.0.1:45080: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651613872.6992543}
+2022-05-04 02:37:52,795 INFO     Correct [presence] from [test2] received
+2022-05-04 02:37:52,795 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651613872.7952585, 'alert': 'OK'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45080)>); kwargs: {}
+2022-05-04 02:37:52,795 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:52,968 DEBUG    Connection request from ('127.0.0.1', 45084) received
+2022-05-04 02:37:52,968 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45080)>,); kwargs: {}
+2022-05-04 02:37:52,969 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651613872.7966254, 'user': {'username': 'test2'}}
+2022-05-04 02:37:52,969 DEBUG    Received data from client 127.0.0.1:45080: {'action': 'get_contacts', 'time': 1651613872.7966254, 'user': {'username': 'test2'}}
+2022-05-04 02:37:52,972 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651613872.9727702, 'alert': '[]'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45080)>); kwargs: {}
+2022-05-04 02:37:52,973 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:52,973 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45082)>,); kwargs: {}
+2022-05-04 02:37:52,973 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651613872.7885435}
+2022-05-04 02:37:52,974 DEBUG    Received data from client 127.0.0.1:45082: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651613872.7885435}
+2022-05-04 02:37:52,974 INFO     Correct [presence] from [test3] received
+2022-05-04 02:37:52,974 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651613872.974491, 'alert': 'OK'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45082)>); kwargs: {}
+2022-05-04 02:37:52,975 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:53,238 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45082)>,); kwargs: {}
+2022-05-04 02:37:53,238 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651613872.9763541, 'user': {'username': 'test3'}}
+2022-05-04 02:37:53,238 DEBUG    Received data from client 127.0.0.1:45082: {'action': 'get_contacts', 'time': 1651613872.9763541, 'user': {'username': 'test3'}}
+2022-05-04 02:37:53,241 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651613873.2416584, 'alert': '[]'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45082)>); kwargs: {}
+2022-05-04 02:37:53,243 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:53,244 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45084)>,); kwargs: {}
+2022-05-04 02:37:53,244 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651613872.9686801}
+2022-05-04 02:37:53,244 DEBUG    Received data from client 127.0.0.1:45084: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651613872.9686801}
+2022-05-04 02:37:53,244 INFO     Correct [presence] from [test4] received
+2022-05-04 02:37:53,244 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651613873.2448068, 'alert': 'OK'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45084)>); kwargs: {}
+2022-05-04 02:37:53,245 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:53,506 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45084)>,); kwargs: {}
+2022-05-04 02:37:53,507 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651613873.2458255, 'user': {'username': 'test4'}}
+2022-05-04 02:37:53,507 DEBUG    Received data from client 127.0.0.1:45084: {'action': 'get_contacts', 'time': 1651613873.2458255, 'user': {'username': 'test4'}}
+2022-05-04 02:37:53,510 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651613873.510022, 'alert': '[]'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45084)>); kwargs: {}
+2022-05-04 02:37:53,510 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:56,520 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45084)>,); kwargs: {}
+2022-05-04 02:37:56,520 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651613876.4511766, 'text': 'h'}
+2022-05-04 02:37:56,521 DEBUG    Received data from client 127.0.0.1:45084: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651613876.4511766, 'text': 'h'}
+2022-05-04 02:37:56,521 INFO     Correct [message] from [test4] received
+2022-05-04 02:37:56,521 DEBUG    msg attrs: sender_name='test4', sender_sock=<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45084)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 02:37:56,525 WARNING  Wrong data from client 127.0.0.1:45084. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 02:37:56,563 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651613876.5219107, 'sender': 'test4', 'recipient': 'all', 'text': 'h'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45078)>); kwargs: {}
+2022-05-04 02:37:56,564 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:56,564 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651613876.5219107, 'sender': 'test4', 'recipient': 'all', 'text': 'h'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45080)>); kwargs: {}
+2022-05-04 02:37:56,567 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:56,567 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651613876.5219107, 'sender': 'test4', 'recipient': 'all', 'text': 'h'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45082)>); kwargs: {}
+2022-05-04 02:37:56,569 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:37:56,572 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651613876.5219107, 'sender': 'test4', 'recipient': 'all', 'text': 'h'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 02:37:56,573 WARNING  Client <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0> disconnected from the server. current_data={'action': 'message', 'time': 1651613876.5219107, 'sender': 'test4', 'recipient': 'all', 'text': 'h'}Connection dropped. Exception: [Errno 9] Неправильный дескриптор файла.
+2022-05-04 02:39:46,600 DEBUG    Server app started with args: []
+2022-05-04 02:39:46,604 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 02:39:46,688 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 02:39:46,691 DEBUG    Connection request from ('127.0.0.1', 45114) received
+2022-05-04 02:39:46,942 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45114)>,); kwargs: {}
+2022-05-04 02:39:46,943 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651613986.699458}
+2022-05-04 02:39:46,943 DEBUG    Received data from client 127.0.0.1:45114: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651613986.699458}
+2022-05-04 02:39:46,943 INFO     Correct [presence] from [test3] received
+2022-05-04 02:39:46,944 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651613986.943888, 'alert': 'OK'}, <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45114)>); kwargs: {}
+2022-05-04 02:39:46,944 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:39:47,297 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45114)>,); kwargs: {}
+2022-05-04 02:39:47,298 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651613986.948077, 'user': {'username': 'test3'}}
+2022-05-04 02:39:47,298 DEBUG    Received data from client 127.0.0.1:45114: {'action': 'get_contacts', 'time': 1651613986.948077, 'user': {'username': 'test3'}}
+2022-05-04 02:39:47,553 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651613987.5533025, 'alert': '[]'}, <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45114)>); kwargs: {}
+2022-05-04 02:39:47,553 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:40:09,152 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45114)>,); kwargs: {}
+2022-05-04 02:40:09,153 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test3'}, 'time': 1651614009.0519726, 'text': 'ff'}
+2022-05-04 02:40:09,153 DEBUG    Received data from client 127.0.0.1:45114: {'action': 'message', 'user': {'username': 'test3'}, 'time': 1651614009.0519726, 'text': 'ff'}
+2022-05-04 02:40:09,153 INFO     Correct [message] from [test3] received
+2022-05-04 02:40:09,153 DEBUG    msg attrs: sender_name='test3', sender_sock=<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45114)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 02:40:09,156 WARNING  Wrong data from client 127.0.0.1:45114. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 02:40:09,165 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651614009.1542764, 'sender': 'test3', 'recipient': 'all', 'text': 'ff'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 02:40:09,165 WARNING  Client <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0> disconnected from the server. current_data={'action': 'message', 'time': 1651614009.1542764, 'sender': 'test3', 'recipient': 'all', 'text': 'ff'}Connection dropped. Exception: [Errno 9] Неправильный дескриптор файла.
+2022-05-04 02:46:40,115 DEBUG    Server app started with args: []
+2022-05-04 02:46:40,118 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 02:46:40,147 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 02:46:42,957 DEBUG    Connection request from ('127.0.0.1', 45202) received
+2022-05-04 02:46:42,957 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45202)>,); kwargs: {}
+2022-05-04 02:46:42,957 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651614402.9571924}
+2022-05-04 02:46:42,958 DEBUG    Received data from client 127.0.0.1:45202: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651614402.9571924}
+2022-05-04 02:46:42,959 INFO     Correct [presence] from [test1] received
+2022-05-04 02:46:42,959 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651614402.959495, 'alert': 'OK'}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45202)>); kwargs: {}
+2022-05-04 02:46:42,960 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:43,173 DEBUG    Connection request from ('127.0.0.1', 45204) received
+2022-05-04 02:46:43,173 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45202)>,); kwargs: {}
+2022-05-04 02:46:43,173 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651614402.9922109, 'user': {'username': 'test1'}}
+2022-05-04 02:46:43,173 DEBUG    Received data from client 127.0.0.1:45202: {'action': 'get_contacts', 'time': 1651614402.9922109, 'user': {'username': 'test1'}}
+2022-05-04 02:46:43,180 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651614403.1806617, 'alert': '[]'}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45202)>); kwargs: {}
+2022-05-04 02:46:43,181 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:43,432 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45204)>,); kwargs: {}
+2022-05-04 02:46:43,432 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651614403.1735258}
+2022-05-04 02:46:43,432 DEBUG    Received data from client 127.0.0.1:45204: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651614403.1735258}
+2022-05-04 02:46:43,433 INFO     Correct [presence] from [test2] received
+2022-05-04 02:46:43,433 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651614403.43302, 'alert': 'OK'}, <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45204)>); kwargs: {}
+2022-05-04 02:46:43,433 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:43,470 DEBUG    Connection request from ('127.0.0.1', 45206) received
+2022-05-04 02:46:43,471 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45204)>,); kwargs: {}
+2022-05-04 02:46:43,471 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651614403.4345505, 'user': {'username': 'test2'}}
+2022-05-04 02:46:43,471 DEBUG    Received data from client 127.0.0.1:45204: {'action': 'get_contacts', 'time': 1651614403.4345505, 'user': {'username': 'test2'}}
+2022-05-04 02:46:43,475 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651614403.4749656, 'alert': '[]'}, <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45204)>); kwargs: {}
+2022-05-04 02:46:43,475 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:43,613 DEBUG    Connection request from ('127.0.0.1', 45208) received
+2022-05-04 02:46:43,613 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45206)>,); kwargs: {}
+2022-05-04 02:46:43,614 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651614403.471779}
+2022-05-04 02:46:43,614 DEBUG    Received data from client 127.0.0.1:45206: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651614403.471779}
+2022-05-04 02:46:43,614 INFO     Correct [presence] from [test3] received
+2022-05-04 02:46:43,614 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651614403.6145065, 'alert': 'OK'}, <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45206)>); kwargs: {}
+2022-05-04 02:46:43,614 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:43,894 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45206)>,); kwargs: {}
+2022-05-04 02:46:43,895 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651614403.6156027, 'user': {'username': 'test3'}}
+2022-05-04 02:46:43,895 DEBUG    Received data from client 127.0.0.1:45206: {'action': 'get_contacts', 'time': 1651614403.6156027, 'user': {'username': 'test3'}}
+2022-05-04 02:46:43,899 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651614403.8990164, 'alert': '[]'}, <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45206)>); kwargs: {}
+2022-05-04 02:46:43,899 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:43,899 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45208)>,); kwargs: {}
+2022-05-04 02:46:43,899 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651614403.613826}
+2022-05-04 02:46:43,899 DEBUG    Received data from client 127.0.0.1:45208: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651614403.613826}
+2022-05-04 02:46:43,900 INFO     Correct [presence] from [test4] received
+2022-05-04 02:46:43,904 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651614403.9001853, 'alert': 'OK'}, <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45208)>); kwargs: {}
+2022-05-04 02:46:43,904 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:44,170 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45208)>,); kwargs: {}
+2022-05-04 02:46:44,171 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651614403.9085324, 'user': {'username': 'test4'}}
+2022-05-04 02:46:44,171 DEBUG    Received data from client 127.0.0.1:45208: {'action': 'get_contacts', 'time': 1651614403.9085324, 'user': {'username': 'test4'}}
+2022-05-04 02:46:44,174 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651614404.174783, 'alert': '[]'}, <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45208)>); kwargs: {}
+2022-05-04 02:46:44,175 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:47,184 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45208)>,); kwargs: {}
+2022-05-04 02:46:47,184 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651614407.146967, 'text': 'jjj'}
+2022-05-04 02:46:47,185 DEBUG    Received data from client 127.0.0.1:45208: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651614407.146967, 'text': 'jjj'}
+2022-05-04 02:46:47,185 INFO     Correct [message] from [test4] received
+2022-05-04 02:46:47,185 DEBUG    msg attrs: sender_name='test4', sender_sock=<socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45208)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 02:46:47,189 WARNING  Wrong data from client 127.0.0.1:45208. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 02:46:47,196 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651614407.185884, 'sender': 'test4', 'recipient': 'all', 'text': 'jjj'}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45202)>); kwargs: {}
+2022-05-04 02:46:47,197 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:47,197 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651614407.185884, 'sender': 'test4', 'recipient': 'all', 'text': 'jjj'}, <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45204)>); kwargs: {}
+2022-05-04 02:46:47,197 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:47,198 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651614407.185884, 'sender': 'test4', 'recipient': 'all', 'text': 'jjj'}, <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45206)>); kwargs: {}
+2022-05-04 02:46:47,198 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:46:47,198 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651614407.185884, 'sender': 'test4', 'recipient': 'all', 'text': 'jjj'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 02:46:47,198 CRITICAL Unknown critical error: [Errno 9] Bad file descriptor
+2022-05-04 02:49:42,472 DEBUG    Server app started with args: []
+2022-05-04 02:49:42,476 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 02:49:42,518 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 02:49:50,697 DEBUG    Connection request from ('127.0.0.1', 45250) received
+2022-05-04 02:49:50,953 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45250)>,); kwargs: {}
+2022-05-04 02:49:50,953 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651614590.6979344}
+2022-05-04 02:49:50,953 DEBUG    Received data from client 127.0.0.1:45250: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651614590.6979344}
+2022-05-04 02:49:50,953 INFO     Correct [presence] from [god] received
+2022-05-04 02:49:50,954 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651614590.9538527, 'alert': 'OK'}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45250)>); kwargs: {}
+2022-05-04 02:49:50,954 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:49:51,227 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45250)>,); kwargs: {}
+2022-05-04 02:49:51,228 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651614590.9550388, 'user': {'username': 'god'}}
+2022-05-04 02:49:51,228 DEBUG    Received data from client 127.0.0.1:45250: {'action': 'get_contacts', 'time': 1651614590.9550388, 'user': {'username': 'god'}}
+2022-05-04 02:49:51,233 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651614591.2328846, 'alert': '[]'}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45250)>); kwargs: {}
+2022-05-04 02:49:51,233 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:49:55,997 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45250)>,); kwargs: {}
+2022-05-04 02:49:55,998 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651614595.8614776, 'text': 'ff'}
+2022-05-04 02:49:55,998 DEBUG    Received data from client 127.0.0.1:45250: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651614595.8614776, 'text': 'ff'}
+2022-05-04 02:49:55,998 INFO     Correct [message] from [god] received
+2022-05-04 02:49:55,998 DEBUG    msg attrs: sender_name='god', sender_sock=<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45250)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 02:49:56,002 WARNING  Wrong data from client 127.0.0.1:45250. Connection dropped. Exception: Could not locate column in row for column 'sent'
+2022-05-04 02:49:56,010 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651614595.998798, 'sender': 'god', 'recipient': 'all', 'text': 'ff'}, <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>); kwargs: {}
+2022-05-04 02:49:56,010 CRITICAL Unknown critical error: [Errno 9] Bad file descriptor
+2022-05-04 02:51:17,582 DEBUG    Server app started with args: []
+2022-05-04 02:51:30,986 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 02:52:41,793 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 02:53:25,372 DEBUG    Connection request from ('127.0.0.1', 45296) received
+2022-05-04 02:53:53,065 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45296)>,); kwargs: {}
+2022-05-04 02:54:16,161 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651614788.0941985}
+2022-05-04 02:54:22,355 DEBUG    Received data from client 127.0.0.1:45296: {'action': 'presence', 'user': {'username': 'god'}, 'time': 1651614788.0941985}
+2022-05-04 02:54:54,089 INFO     Correct [presence] from [god] received
+2022-05-04 02:54:58,762 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651614879.3231063, 'alert': 'OK'}, <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45296)>); kwargs: {}
+2022-05-04 02:55:04,868 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:56:01,542 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45296)>,); kwargs: {}
+2022-05-04 02:56:08,694 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651614902.4330363, 'user': {'username': 'god'}}
+2022-05-04 02:56:10,861 DEBUG    Received data from client 127.0.0.1:45296: {'action': 'get_contacts', 'time': 1651614902.4330363, 'user': {'username': 'god'}}
+2022-05-04 02:57:09,009 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651615022.2186983, 'alert': '[]'}, <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45296)>); kwargs: {}
+2022-05-04 02:57:15,907 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 02:58:33,165 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45296)>,); kwargs: {}
+2022-05-04 02:58:50,129 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651615073.4289126, 'text': 'ff'}
+2022-05-04 02:58:55,044 DEBUG    Received data from client 127.0.0.1:45296: {'action': 'message', 'user': {'username': 'god'}, 'time': 1651615073.4289126, 'text': 'ff'}
+2022-05-04 02:59:43,361 INFO     Correct [message] from [god] received
+2022-05-04 03:00:03,213 DEBUG    msg attrs: sender_name='god', sender_sock=<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45296)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 03:02:21,525 DEBUG    Server app started with args: []
+2022-05-04 03:02:21,528 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 03:02:21,585 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 03:02:23,363 DEBUG    Connection request from ('127.0.0.1', 45410) received
+2022-05-04 03:02:23,616 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45410)>,); kwargs: {}
+2022-05-04 03:02:23,616 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651615343.365515}
+2022-05-04 03:02:23,616 DEBUG    Received data from client 127.0.0.1:45410: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651615343.365515}
+2022-05-04 03:02:23,616 INFO     Correct [presence] from [test1] received
+2022-05-04 03:02:23,617 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651615343.6169095, 'alert': 'OK'}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45410)>); kwargs: {}
+2022-05-04 03:02:23,617 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:23,695 DEBUG    Connection request from ('127.0.0.1', 45412) received
+2022-05-04 03:02:23,695 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45410)>,); kwargs: {}
+2022-05-04 03:02:23,696 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651615343.6192243, 'user': {'username': 'test1'}}
+2022-05-04 03:02:23,696 DEBUG    Received data from client 127.0.0.1:45410: {'action': 'get_contacts', 'time': 1651615343.6192243, 'user': {'username': 'test1'}}
+2022-05-04 03:02:23,701 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651615343.701498, 'alert': '[]'}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45410)>); kwargs: {}
+2022-05-04 03:02:23,702 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:23,772 DEBUG    Connection request from ('127.0.0.1', 45414) received
+2022-05-04 03:02:23,772 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45412)>,); kwargs: {}
+2022-05-04 03:02:23,773 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651615343.6963704}
+2022-05-04 03:02:23,774 DEBUG    Received data from client 127.0.0.1:45412: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651615343.6963704}
+2022-05-04 03:02:23,774 INFO     Correct [presence] from [test2] received
+2022-05-04 03:02:23,774 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651615343.7745504, 'alert': 'OK'}, <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45412)>); kwargs: {}
+2022-05-04 03:02:23,775 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:24,050 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45412)>,); kwargs: {}
+2022-05-04 03:02:24,050 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651615343.7840924, 'user': {'username': 'test2'}}
+2022-05-04 03:02:24,051 DEBUG    Received data from client 127.0.0.1:45412: {'action': 'get_contacts', 'time': 1651615343.7840924, 'user': {'username': 'test2'}}
+2022-05-04 03:02:24,055 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651615344.0557718, 'alert': '[]'}, <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45412)>); kwargs: {}
+2022-05-04 03:02:24,056 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:24,057 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45414)>,); kwargs: {}
+2022-05-04 03:02:24,057 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651615343.7751458}
+2022-05-04 03:02:24,057 DEBUG    Received data from client 127.0.0.1:45414: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651615343.7751458}
+2022-05-04 03:02:24,058 INFO     Correct [presence] from [test3] received
+2022-05-04 03:02:24,059 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651615344.058009, 'alert': 'OK'}, <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45414)>); kwargs: {}
+2022-05-04 03:02:24,060 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:24,153 DEBUG    Connection request from ('127.0.0.1', 45416) received
+2022-05-04 03:02:24,153 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45414)>,); kwargs: {}
+2022-05-04 03:02:24,154 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651615344.0609338, 'user': {'username': 'test3'}}
+2022-05-04 03:02:24,154 DEBUG    Received data from client 127.0.0.1:45414: {'action': 'get_contacts', 'time': 1651615344.0609338, 'user': {'username': 'test3'}}
+2022-05-04 03:02:24,158 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651615344.1580298, 'alert': '[]'}, <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45414)>); kwargs: {}
+2022-05-04 03:02:24,158 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:24,409 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45416)>,); kwargs: {}
+2022-05-04 03:02:24,409 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651615344.154297}
+2022-05-04 03:02:24,409 DEBUG    Received data from client 127.0.0.1:45416: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651615344.154297}
+2022-05-04 03:02:24,410 INFO     Correct [presence] from [test4] received
+2022-05-04 03:02:24,410 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651615344.4100847, 'alert': 'OK'}, <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45416)>); kwargs: {}
+2022-05-04 03:02:24,410 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:24,671 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45416)>,); kwargs: {}
+2022-05-04 03:02:24,672 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651615344.4117715, 'user': {'username': 'test4'}}
+2022-05-04 03:02:24,672 DEBUG    Received data from client 127.0.0.1:45416: {'action': 'get_contacts', 'time': 1651615344.4117715, 'user': {'username': 'test4'}}
+2022-05-04 03:02:24,675 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651615344.6755166, 'alert': '[]'}, <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45416)>); kwargs: {}
+2022-05-04 03:02:24,675 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:27,439 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45412)>,); kwargs: {}
+2022-05-04 03:02:27,443 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test2'}, 'time': 1651615347.2776954, 'text': 'bb'}
+2022-05-04 03:02:27,443 DEBUG    Received data from client 127.0.0.1:45412: {'action': 'message', 'user': {'username': 'test2'}, 'time': 1651615347.2776954, 'text': 'bb'}
+2022-05-04 03:02:27,444 INFO     Correct [message] from [test2] received
+2022-05-04 03:02:27,444 DEBUG    msg attrs: sender_name='test2', sender_sock=<socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45412)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 03:02:27,452 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615347.444373, 'sender': 'test2', 'recipient': 'all', 'text': 'bb'}, <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45410)>); kwargs: {}
+2022-05-04 03:02:27,452 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:27,453 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615347.444373, 'sender': 'test2', 'recipient': 'all', 'text': 'bb'}, <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45412)>); kwargs: {}
+2022-05-04 03:02:27,454 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:27,454 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615347.444373, 'sender': 'test2', 'recipient': 'all', 'text': 'bb'}, <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45414)>); kwargs: {}
+2022-05-04 03:02:27,454 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:02:27,454 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615347.444373, 'sender': 'test2', 'recipient': 'all', 'text': 'bb'}, <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45416)>); kwargs: {}
+2022-05-04 03:02:27,454 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:35,120 DEBUG    Server app started with args: []
+2022-05-04 03:04:35,123 DEBUG    Initiating listen address: 0.0.0.0:7777.
+2022-05-04 03:04:35,153 INFO     Socket successfully created. Listen address: 0.0.0.0:7777.
+2022-05-04 03:04:37,522 DEBUG    Connection request from ('127.0.0.1', 45446) received
+2022-05-04 03:04:37,773 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>,); kwargs: {}
+2022-05-04 03:04:37,774 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651615477.526985}
+2022-05-04 03:04:37,774 DEBUG    Received data from client 127.0.0.1:45446: {'action': 'presence', 'user': {'username': 'test1'}, 'time': 1651615477.526985}
+2022-05-04 03:04:37,775 INFO     Correct [presence] from [test1] received
+2022-05-04 03:04:37,776 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651615477.775725, 'alert': 'OK'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>); kwargs: {}
+2022-05-04 03:04:37,776 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:37,821 DEBUG    Connection request from ('127.0.0.1', 45448) received
+2022-05-04 03:04:37,821 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>,); kwargs: {}
+2022-05-04 03:04:37,821 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651615477.7823312, 'user': {'username': 'test1'}}
+2022-05-04 03:04:37,821 DEBUG    Received data from client 127.0.0.1:45446: {'action': 'get_contacts', 'time': 1651615477.7823312, 'user': {'username': 'test1'}}
+2022-05-04 03:04:37,854 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651615477.8539646, 'alert': '[]'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>); kwargs: {}
+2022-05-04 03:04:37,854 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:38,053 DEBUG    Connection request from ('127.0.0.1', 45450) received
+2022-05-04 03:04:38,054 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45448)>,); kwargs: {}
+2022-05-04 03:04:38,054 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651615477.845794}
+2022-05-04 03:04:38,055 DEBUG    Received data from client 127.0.0.1:45448: {'action': 'presence', 'user': {'username': 'test2'}, 'time': 1651615477.845794}
+2022-05-04 03:04:38,056 INFO     Correct [presence] from [test2] received
+2022-05-04 03:04:38,056 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651615478.0561817, 'alert': 'OK'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45448)>); kwargs: {}
+2022-05-04 03:04:38,056 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:38,257 DEBUG    Connection request from ('127.0.0.1', 45452) received
+2022-05-04 03:04:38,258 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45448)>,); kwargs: {}
+2022-05-04 03:04:38,258 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651615478.0579789, 'user': {'username': 'test2'}}
+2022-05-04 03:04:38,258 DEBUG    Received data from client 127.0.0.1:45448: {'action': 'get_contacts', 'time': 1651615478.0579789, 'user': {'username': 'test2'}}
+2022-05-04 03:04:38,261 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651615478.261576, 'alert': '[]'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45448)>); kwargs: {}
+2022-05-04 03:04:38,261 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:38,262 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45450)>,); kwargs: {}
+2022-05-04 03:04:38,262 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651615478.0555723}
+2022-05-04 03:04:38,262 DEBUG    Received data from client 127.0.0.1:45450: {'action': 'presence', 'user': {'username': 'test3'}, 'time': 1651615478.0555723}
+2022-05-04 03:04:38,262 INFO     Correct [presence] from [test3] received
+2022-05-04 03:04:38,263 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651615478.262925, 'alert': 'OK'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45450)>); kwargs: {}
+2022-05-04 03:04:38,263 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:38,523 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45450)>,); kwargs: {}
+2022-05-04 03:04:38,524 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651615478.2642748, 'user': {'username': 'test3'}}
+2022-05-04 03:04:38,524 DEBUG    Received data from client 127.0.0.1:45450: {'action': 'get_contacts', 'time': 1651615478.2642748, 'user': {'username': 'test3'}}
+2022-05-04 03:04:38,527 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651615478.527289, 'alert': '[]'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45450)>); kwargs: {}
+2022-05-04 03:04:38,527 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:38,527 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45452)>,); kwargs: {}
+2022-05-04 03:04:38,527 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651615478.2579508}
+2022-05-04 03:04:38,528 DEBUG    Received data from client 127.0.0.1:45452: {'action': 'presence', 'user': {'username': 'test4'}, 'time': 1651615478.2579508}
+2022-05-04 03:04:38,528 INFO     Correct [presence] from [test4] received
+2022-05-04 03:04:38,528 DEBUG    Calling [post_data] from function [presence] with args: ({'response': 200, 'time': 1651615478.5283408, 'alert': 'OK'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45452)>); kwargs: {}
+2022-05-04 03:04:38,528 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:38,788 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45452)>,); kwargs: {}
+2022-05-04 03:04:38,788 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'get_contacts', 'time': 1651615478.5294104, 'user': {'username': 'test4'}}
+2022-05-04 03:04:38,789 DEBUG    Received data from client 127.0.0.1:45452: {'action': 'get_contacts', 'time': 1651615478.5294104, 'user': {'username': 'test4'}}
+2022-05-04 03:04:38,791 DEBUG    Calling [post_data] from function [get_contacts] with args: ({'response': 200, 'time': 1651615478.791887, 'alert': '[]'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45452)>); kwargs: {}
+2022-05-04 03:04:38,792 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:42,558 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45452)>,); kwargs: {}
+2022-05-04 03:04:42,558 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651615482.5411117, 'text': 'vv'}
+2022-05-04 03:04:42,558 DEBUG    Received data from client 127.0.0.1:45452: {'action': 'message', 'user': {'username': 'test4'}, 'time': 1651615482.5411117, 'text': 'vv'}
+2022-05-04 03:04:42,558 INFO     Correct [message] from [test4] received
+2022-05-04 03:04:42,559 DEBUG    msg attrs: sender_name='test4', sender_sock=<socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45452)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 03:04:42,565 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615482.5592332, 'sender': 'test4', 'recipient': 'all', 'text': 'vv'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>); kwargs: {}
+2022-05-04 03:04:42,566 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:42,566 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615482.5592332, 'sender': 'test4', 'recipient': 'all', 'text': 'vv'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45448)>); kwargs: {}
+2022-05-04 03:04:42,566 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:42,566 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615482.5592332, 'sender': 'test4', 'recipient': 'all', 'text': 'vv'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45450)>); kwargs: {}
+2022-05-04 03:04:42,566 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:42,567 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615482.5592332, 'sender': 'test4', 'recipient': 'all', 'text': 'vv'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45452)>); kwargs: {}
+2022-05-04 03:04:42,567 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:54,364 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>,); kwargs: {}
+2022-05-04 03:04:54,364 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test1'}, 'time': 1651615494.149389, 'text': 'bbb'}
+2022-05-04 03:04:54,365 DEBUG    Received data from client 127.0.0.1:45446: {'action': 'message', 'user': {'username': 'test1'}, 'time': 1651615494.149389, 'text': 'bbb'}
+2022-05-04 03:04:54,365 INFO     Correct [message] from [test1] received
+2022-05-04 03:04:54,365 DEBUG    msg attrs: sender_name='test1', sender_sock=<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>, target_sock=None, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 03:04:54,370 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615494.3654592, 'sender': 'test1', 'recipient': 'all', 'text': 'bbb'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>); kwargs: {}
+2022-05-04 03:04:54,370 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:54,371 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615494.3654592, 'sender': 'test1', 'recipient': 'all', 'text': 'bbb'}, <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45448)>); kwargs: {}
+2022-05-04 03:04:54,371 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:54,371 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615494.3654592, 'sender': 'test1', 'recipient': 'all', 'text': 'bbb'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45450)>); kwargs: {}
+2022-05-04 03:04:54,371 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:04:54,371 DEBUG    Calling [post_data] from function [main_cycle] with args: ({'action': 'message', 'time': 1651615494.3654592, 'sender': 'test1', 'recipient': 'all', 'text': 'bbb'}, <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45452)>); kwargs: {}
+2022-05-04 03:04:54,372 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:05:06,936 DEBUG    Calling [get_data] from function [data_handler] with args: (<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>,); kwargs: {}
+2022-05-04 03:05:06,936 DEBUG    [common.utils.get_data] successfully completed. Returned results: {'action': 'message', 'user': {'username': 'test1'}, 'time': 1651615506.8432627, 'text': 'ggfdfd', 'recipient': 'test3'}
+2022-05-04 03:05:06,937 DEBUG    Received data from client 127.0.0.1:45446: {'action': 'message', 'user': {'username': 'test1'}, 'time': 1651615506.8432627, 'text': 'ggfdfd', 'recipient': 'test3'}
+2022-05-04 03:05:06,937 INFO     Correct [message] from [test1] received
+2022-05-04 03:05:06,937 DEBUG    msg attrs: sender_name='test1', sender_sock=<socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>, target_sock=<socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45450)>, is_sender_authorised=True, is_sender_guest=False
+2022-05-04 03:05:06,937 INFO     sender test1 send private msg to test3
+2022-05-04 03:05:06,937 DEBUG    Calling [post_data] from function [message] with args: ({'action': 'message', 'time': 1651615506.9376318, 'sender': 'test1', 'recipient': 'test3', 'text': 'ggfdfd'}, <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45450)>); kwargs: {}
+2022-05-04 03:05:06,938 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
+2022-05-04 03:05:06,938 DEBUG    Calling [post_data] from function [message] with args: ({'action': 'message', 'time': 1651615506.9376318, 'sender': 'test1', 'recipient': 'test3', 'text': 'ggfdfd'}, <socket.socket fd=25, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 45446)>); kwargs: {}
+2022-05-04 03:05:06,938 DEBUG    [common.utils.post_data] successfully completed. Returned results: None
